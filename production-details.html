@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>生产工艺更多细节</title>
+<title>打火机生产制作工艺</title>
 <meta name="description" content="打火机自动化生产工艺细节，展示注塑、插盘、焊接、充气、调火、检测、分色贴标等设备流程与视频链接。">
 <meta name="keywords" content="打火机生产工艺,打火机自动化设备,注塑机,焊接机,充气机,调火机,检测机,lighter production line">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
@@ -105,16 +105,30 @@ body{
 .detail-image{
   width:min(100%,1280px);
   overflow:hidden;
+  position:relative;
   border:1px solid rgba(255,255,255,.12);
   border-radius:8px;
   background:#fff;
   box-shadow:0 22px 60px rgba(0,0,0,.36);
+}
+.detail-image.is-linked{
+  cursor:pointer;
+  transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease;
+}
+.detail-image.is-linked:hover{
+  transform:translateY(-2px);
+  border-color:rgba(255,159,47,.72);
+  box-shadow:0 26px 70px rgba(0,0,0,.46);
 }
 .detail-image img{
   display:block;
   width:100%;
   height:auto;
   background:#fff;
+}
+.detail-card{
+  position:relative;
+  display:block;
 }
 .detail-link{
   display:block;
@@ -124,6 +138,29 @@ body{
 .detail-link:focus-visible{
   outline:3px solid #f0a040;
   outline-offset:4px;
+}
+.video-action-row{
+  display:flex;
+  justify-content:flex-end;
+  padding:10px 14px 12px;
+  background:#fff;
+}
+.video-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  min-height:38px;
+  padding:0 16px;
+  border-radius:999px;
+  color:#05070a;
+  background:#ff9f2f;
+  font-size:.9rem;
+  font-weight:800;
+  box-shadow:0 10px 24px rgba(0,0,0,.16);
+}
+.video-badge::before{
+  content:"▶";
+  font-size:.78rem;
 }
 .detail-image.image-missing{
   min-height:420px;
@@ -165,6 +202,15 @@ body{
   .section-title p{font-size:.86rem}
   .details-list{gap:18px}
   .detail-image{border-radius:6px}
+  .video-action-row{
+    justify-content:center;
+    padding:8px 10px 10px;
+  }
+  .video-badge{
+    min-height:34px;
+    padding:0 14px;
+    font-size:.82rem;
+  }
 }
 
 /* Stitch-inspired AI product companion theme */
@@ -231,13 +277,13 @@ body{
 </head>
 <body>
 <header class="header">
-  <a class="logo" href="index.html#production">生产工艺更多细节</a>
+  <a class="logo" href="index.html#production">打火机生产制作工艺</a>
   <button class="back" onclick="window.location.href='index.html#production'">返回生产工艺</button>
 </header>
 
 <main class="page">
   <div class="section-title">
-    <h1>生产工艺更多细节</h1>
+    <h1>打火机生产制作工艺</h1>
     <p>Production process details</p>
   </div>
   <div class="details-list" id="detailsList"></div>
@@ -251,11 +297,11 @@ const detailImages = [
   {file:'Feetoo-Product _页面_06.png', youtube:'https://youtu.be/AIuCofHa1zE?si=8NGS5_ycN66EJVy5'},
   {file:'Feetoo-Product _页面_07.png', youtube:'https://youtu.be/bCwlaYDU77s?si=iwfexHy3THJWP0Et'},
   {file:'Feetoo-Product _页面_08.png', youtube:'https://youtu.be/KA7EtjdZBs4?si=nXYGadCWmHkTO2kh'},
-  {file:'Feetoo-Product _页面_09.png', youtube:'https://youtu.be/abKpqKQ_Ofc?si=PqX0NmCtpyQBP8LF'},
-  {file:'Feetoo-Product _页面_10.png', youtube:'https://youtu.be/_2ubgI-Z2as?si=-OtzkF-80aGH2Mcw'},
+  {file:'Feetoo-Product _页面_09.png', youtube:'https://youtu.be/abKpqKQ_Ofc?si=-WyVuY5qSxmTai-K'},
+  {file:'Feetoo-Product _页面_10.png', youtube:'https://youtu.be/_2ubgI-Z2as?si=26GU3Qivxh5f3aCZ'},
   {file:'Feetoo-Product _页面_11.png', youtube:'https://youtu.be/U6Mstfr7_Uo?si=mKYvoah2gRy3C-19'},
-  {file:'Feetoo-Product _页面_12.png', youtube:'https://youtu.be/M3_XYfCCSH4?si=cqdG2gvDleych1bJ'},
-  {file:'Feetoo-Product _页面_13.png', youtube:'https://youtu.be/nWJP7RoacCM?si=KIZgj-13vIgPp8a0'},
+  {file:'Feetoo-Product _页面_12.png', youtube:'https://youtu.be/M3_XYfCCSH4?si=vFc_n_r9r1xWcGfk'},
+  {file:'Feetoo-Product _页面_13.png', youtube:'https://youtu.be/nWJP7RoacCM?si=j8-Sctb3zep-E-dn'},
   {file:'Feetoo-Product _页面_14.png'},
   {file:'Feetoo-Product _页面_15.png'},
   {file:'Feetoo-Product _页面_16.png'},
@@ -268,13 +314,17 @@ const detailImages = [
   src:`images/05-生产工艺/更多细节/${item.file}?v=${imageVersion}`
 }));
 
-document.getElementById('detailsList').innerHTML = detailImages.map((item, index) => `
-  <figure class="detail-image">
-    ${item.youtube ? `<a class="detail-link" href="${item.youtube}" target="_blank" rel="noopener noreferrer">` : ''}
-      <img src="${item.src}" alt="生产工艺细节 ${index + 1}" loading="${index === 0 ? 'eager' : 'lazy'}" decoding="async" onerror="this.closest('.detail-image').classList.add('image-missing')">
-    ${item.youtube ? '</a>' : ''}
-  </figure>
-`).join('');
+document.getElementById('detailsList').innerHTML = detailImages.map((item, index) => {
+  const image = `<img src="${item.src}" alt="生产工艺细节 ${index + 1}" loading="${index === 0 ? 'eager' : 'lazy'}" decoding="async" onerror="this.closest('.detail-image').classList.add('image-missing')">`;
+  const videoAction = `<span class="video-action-row"><span class="video-badge">查看视频</span></span>`;
+  return `
+    <figure class="detail-image${item.youtube ? ' is-linked' : ''}">
+      ${item.youtube
+        ? `<a class="detail-card detail-link" href="${item.youtube}" target="_blank" rel="noopener noreferrer" aria-label="打开生产工艺视频 ${index + 1}">${image}${videoAction}</a>`
+        : `${image}${videoAction}`}
+    </figure>
+  `;
+}).join('');
 </script>
 </body>
 </html>

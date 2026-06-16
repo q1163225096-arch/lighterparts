@@ -99,13 +99,13 @@ body{
   margin:0 auto 30px;
   display:flex;
   justify-content:center;
-  gap:10px;
+  gap:8px;
   flex-wrap:wrap;
 }
 .category-btn{
-  min-width:128px;
+  min-width:auto;
   min-height:40px;
-  padding:0 18px;
+  padding:0 15px;
   border:1px solid rgba(255,255,255,.12);
   border-radius:8px;
   background:rgba(255,255,255,.045);
@@ -125,12 +125,6 @@ body{
   background:rgba(255,159,47,.16);
   box-shadow:0 0 0 1px rgba(255,159,47,.12) inset;
 }
-.category-btn .count{
-  margin-left:3px;
-  color:#7f8b98;
-  font-weight:600;
-}
-.category-btn.active .count{color:#d7b174}
 .details-list{
   display:grid;
   gap:28px;
@@ -194,8 +188,8 @@ body{
   }
   .page{padding:28px 10px 36px}
   .category-filter{
-    justify-content:flex-start;
-    gap:8px;
+    justify-content:center;
+    gap:6px;
     margin-bottom:20px;
     overflow-x:auto;
     flex-wrap:nowrap;
@@ -205,9 +199,9 @@ body{
   .category-filter::-webkit-scrollbar{display:none}
   .category-btn{
     flex:0 0 auto;
-    min-width:112px;
+    min-width:auto;
     min-height:38px;
-    padding:0 12px;
+    padding:0 10px;
     font-size:.78rem;
   }
   .details-list{gap:18px}
@@ -233,11 +227,11 @@ body{
 const imageVersion = '20260615-user-0904';
 const detailImageRoot = 'images/01-部件拆解/更多拆解图-替换区';
 const categories = [
-  {key:'electronic', label:'电子打火机', count:15, files:['电子机组成.png']},
-  {key:'flint', label:'砂轮打火机', count:17, files:['砂轮机组成.png']},
-  {key:'windproof', label:'防风打火机', count:12, files:['防风打火机.jpg']},
-  {key:'flintHead', label:'砂轮成品头', count:3, files:['砂轮成品头拆解图.png']},
-  {key:'lamp', label:'灯机', count:9, files:['灯机.png']}
+  {key:'electronic', label:'电子打火机', files:['电子机组成.png']},
+  {key:'flint', label:'砂轮打火机', files:['砂轮机组成.png']},
+  {key:'windproof', label:'防风打火机', files:['防风打火机.jpg']},
+  {key:'flintHead', label:'砂轮成品头', files:['砂轮成品头拆解图.png']},
+  {key:'lamp', label:'灯机', files:['灯机.png']}
 ];
 let currentCategory = categories[0].key;
 let zoomLevel = 1;
@@ -281,7 +275,7 @@ function getActiveCategory() {
 function renderCategoryFilter() {
   document.getElementById('categoryFilter').innerHTML = categories.map(category => `
     <button class="category-btn${category.key === currentCategory ? ' active' : ''}" onclick="switchCategory('${category.key}')">
-      ${category.label}<span class="count">(${category.count})</span>
+      ${category.label}
     </button>
   `).join('');
 }
