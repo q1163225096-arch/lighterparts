@@ -1,0 +1,25 @@
+{
+  "name": "打火机散件及设备 - 零部件销售与技术平台",
+  "short_name": "打火机散件及设备",
+  "description": "查看部件拆解图、原材料供应、塑料模具系统、注塑机适配与设备自动化生产流程。",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#030405",
+  "theme_color": "#0b0c0d",
+  "lang": "zh-CN",
+  "icons": [
+    {
+      "src": "/images/site-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/wechat-share.png",
+      "sizes": "624x624",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
