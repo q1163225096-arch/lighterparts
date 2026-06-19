@@ -455,22 +455,23 @@ body.image-viewer-open{
   }
 }
 </style>
+<link rel="stylesheet" href="page-i18n.css">
 </head>
 <body>
 <header class="header">
-  <div class="logo">打火机</div>
-  <button class="back" onclick="window.location.href='index.html#materials'">返回原材料供应</button>
+  <a class="logo" href="index.html" data-i18n="brand">打火机散件及设备</a>
+  <button class="back" data-i18n="back_materials" onclick="window.location.href='index.html#materials'">返回原材料供应</button>
 </header>
 
 <main class="page">
   <div class="section-title">
-    <h1>更多 <span>打火机</span></h1>
-    <p>按工厂和产品栏目筛选打火机款式图</p>
+    <h1><span data-i18n="more_lighters_title_main">更多</span> <span data-i18n="more_lighters_title_accent">打火机</span></h1>
+    <p data-i18n="more_lighters_subtitle">按工厂和产品栏目筛选打火机款式图</p>
     <form class="page-search" id="pageSearch" role="search" autocomplete="off">
-      <div class="search-field" aria-label="搜索打火机名称或型号">
-        <button class="search-toggle" id="searchToggle" type="button" aria-label="打开搜索" title="搜索">⌕</button>
-        <input class="search-input" id="productSearch" type="search" placeholder="搜索名称 / 型号">
-        <button class="search-clear" id="searchClear" type="button" aria-label="清空搜索" title="清空">×</button>
+      <div class="search-field" data-i18n-aria="search_aria" aria-label="搜索打火机名称或型号">
+        <button class="search-toggle" id="searchToggle" type="button" data-i18n-aria="search_open" data-i18n-title="search_title" aria-label="打开搜索" title="搜索">⌕</button>
+        <input class="search-input" id="productSearch" type="search" data-i18n-placeholder="search_placeholder" placeholder="搜索名称 / 型号">
+        <button class="search-clear" id="searchClear" type="button" data-i18n-aria="search_clear" data-i18n-title="search_clear" aria-label="清空搜索" title="清空">×</button>
       </div>
     </form>
   </div>
@@ -491,13 +492,14 @@ body.image-viewer-open{
   <div class="image-viewer__surface" id="imageViewerSurface">
     <img class="image-viewer__image" id="imageViewerImage" alt="">
   </div>
-  <div class="image-viewer__tools" aria-label="图片缩放">
-    <button type="button" data-viewer-action="zoom-out" aria-label="缩小" title="缩小">−</button>
-    <button type="button" data-viewer-action="reset" aria-label="还原" title="还原">1×</button>
-    <button type="button" data-viewer-action="zoom-in" aria-label="放大" title="放大">＋</button>
+  <div class="image-viewer__tools" data-i18n-aria="image_zoom_tools" aria-label="图片缩放">
+    <button type="button" data-viewer-action="zoom-out" data-i18n-aria="zoom_out" data-i18n-title="zoom_out" aria-label="缩小" title="缩小">−</button>
+    <button type="button" data-viewer-action="reset" data-i18n-aria="zoom_reset" data-i18n-title="zoom_reset" aria-label="还原" title="还原">1×</button>
+    <button type="button" data-viewer-action="zoom-in" data-i18n-aria="zoom_in" data-i18n-title="zoom_in" aria-label="放大" title="放大">＋</button>
   </div>
 </div>
 
+<script src="page-i18n.js"></script>
 <script src="factory1-catalog.js"></script>
 <script src="factory2-catalog.js"></script>
 <script>
@@ -602,7 +604,8 @@ function normalizeSearchText(text){
   return String(text || '').trim().toLowerCase();
 }
 function getFactoryLabel(factoryKey){
-  return (factories.find(factory=>factory.key===factoryKey) || {}).label || factoryKey;
+  const label=(factories.find(factory=>factory.key===factoryKey) || {}).label || factoryKey;
+  return window.translatePageText ? translatePageText(label) : label;
 }
 function getSearchItems(){
   const results=[];
@@ -616,7 +619,7 @@ function getSearchItems(){
         results.push({
           ...item,
           _factoryLabel:factoryLabel,
-          _categoryLabel:category.label || categoryKey
+          _categoryLabel:window.translatePageText ? translatePageText(category.label || categoryKey) : (category.label || categoryKey)
         });
       });
     });
@@ -732,9 +735,9 @@ function renderPager(totalItems){
     return `<button class="pager-btn${page===currentPage?' active':''}" type="button" data-page="${page}">${page}</button>`;
   }).join('');
   pager.innerHTML=`
-    <button class="pager-btn" type="button" ${currentPage===1?'disabled':''} data-page="${currentPage-1}">上一页</button>
+    <button class="pager-btn" type="button" ${currentPage===1?'disabled':''} data-page="${currentPage-1}">${escapeHtml(window.pageT ? pageT('prev_page') : '上一页')}</button>
     ${pageButtons}
-    <button class="pager-btn" type="button" ${currentPage===totalPages?'disabled':''} data-page="${currentPage+1}">下一页</button>
+    <button class="pager-btn" type="button" ${currentPage===totalPages?'disabled':''} data-page="${currentPage+1}">${escapeHtml(window.pageT ? pageT('next_page') : '下一页')}</button>
   `;
 }
 function render(){
@@ -742,26 +745,34 @@ function render(){
   const keys=getVisibleCategoryKeys(activeCategories);
   if(!activeCategories[currentCategory]) currentCategory=getDefaultCategory(currentFactory);
   const current=activeCategories[currentCategory] || {items:[]};
-  mainFilter.innerHTML=factories.map(factory=>`<button class="filter-btn${factory.key===currentFactory?' active':''}" type="button" data-factory="${factory.key}">${escapeHtml(factory.label)}</button>`).join('');
+  mainFilter.innerHTML=factories.map(factory=>{
+    const label=window.translatePageText ? translatePageText(factory.label) : factory.label;
+    return `<button class="filter-btn${factory.key===currentFactory?' active':''}" type="button" data-factory="${factory.key}">${escapeHtml(label)}</button>`;
+  }).join('');
   if(!keys.length && !searchQuery.trim()){
     subFilter.innerHTML='';
-    productGrid.innerHTML='<div class="empty-state">该工厂暂无产品图片</div>';
+    productGrid.innerHTML=`<div class="empty-state">${escapeHtml(window.pageT ? pageT('empty_factory') : '该工厂暂无产品图片')}</div>`;
     productPager.innerHTML='';
     return;
   }
-  subFilter.innerHTML=keys.length ? keys.map(key=>`<button class="filter-btn${key===currentCategory?' active':''}" type="button" data-category="${key}">${escapeHtml(activeCategories[key].label)}</button>`).join('') : '';
+  subFilter.innerHTML=keys.length ? keys.map(key=>{
+    const label=window.translatePageText ? translatePageText(activeCategories[key].label) : activeCategories[key].label;
+    return `<button class="filter-btn${key===currentCategory?' active':''}" type="button" data-category="${key}">${escapeHtml(label)}</button>`;
+  }).join('') : '';
   const filteredItems=getFilteredItems(current.items);
   const totalPages=Math.ceil(filteredItems.length/itemsPerPage);
   currentPage=Math.min(Math.max(1,currentPage),Math.max(1,totalPages));
   const pageItems=filteredItems.slice((currentPage-1)*itemsPerPage,currentPage*itemsPerPage);
-  const emptyText=searchQuery.trim() ? `没有找到“${escapeHtml(searchQuery.trim())}”` : '该栏目暂无产品图片';
+  const emptyText=searchQuery.trim()
+    ? (window.pageT ? pageT('no_results',{query:searchQuery.trim()}) : `没有找到“${searchQuery.trim()}”`)
+    : (window.pageT ? pageT('empty_category') : '该栏目暂无产品图片');
   productGrid.innerHTML=filteredItems.length
     ? pageItems.map(item=>{
       const title=escapeHtml(displayTitle(item.model || item.title));
       const img=escapeHtml(imageSrc(item.img));
       return `<article class="card"><img src="${img}" alt="${title}" loading="lazy" decoding="async"><h2>${title}</h2></article>`;
     }).join('')
-    : `<div class="empty-state">${emptyText}</div>`;
+    : `<div class="empty-state">${escapeHtml(emptyText)}</div>`;
   renderPager(filteredItems.length);
   syncSearchState();
 }
@@ -882,6 +893,7 @@ productPager.addEventListener('click', event=>{
   if(!button || button.disabled) return;
   selectPage(Number(button.dataset.page));
 });
+if(window.initPageI18n) initPageI18n(()=>render());
 render();
 </script>
 </body>

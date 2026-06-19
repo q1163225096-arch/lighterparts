@@ -262,16 +262,17 @@ body{
   }
 }
 </style>
+<link rel="stylesheet" href="page-i18n.css">
 </head>
 <body>
 <header class="header">
-  <div class="logo">打火机</div>
-  <button class="back" onclick="window.location.href='index.html#molds'">返回模具系统</button>
+  <a class="logo" href="index.html" data-i18n="brand">打火机散件及设备</a>
+  <button class="back" data-i18n="back_molds" onclick="window.location.href='index.html#molds'">返回模具系统</button>
 </header>
 
 <main class="page">
   <div class="section-title">
-    <h1>打火机散件<span>模具</span></h1>
+    <h1 data-i18n="more_molds_title">打火机散件模具</h1>
   </div>
   <div class="filter">
     <div class="filter-line"><div class="filter-row" id="mainFilter"></div></div>
@@ -284,6 +285,7 @@ body{
   </div>
 </div>
 
+<script src="page-i18n.js"></script>
 <script>
 (() => {
   const ASSET_VERSION = 'placeholder-20260614-0952';
@@ -328,7 +330,8 @@ body{
   function renderFilter(){
     filter.innerHTML = keys.map(key => {
       const item = catalog[key];
-      return `<button class="filter-btn${key === activeCategory ? ' active' : ''}" type="button" data-category="${key}">${escapeHtml(item.label)}<span class="count">(${item.count})</span></button>`;
+      const label = window.translatePageText ? translatePageText(item.label) : item.label;
+      return `<button class="filter-btn${key === activeCategory ? ' active' : ''}" type="button" data-category="${key}">${escapeHtml(label)}<span class="count">(${item.count})</span></button>`;
     }).join('');
   }
 
@@ -476,6 +479,10 @@ body{
     renderGrid();
   });
 
+  if(window.initPageI18n) initPageI18n(() => {
+    renderFilter();
+    renderGrid();
+  });
   renderFilter();
   renderGrid();
 })();

@@ -1,0 +1,121 @@
+.header-actions{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:10px;
+  margin-left:auto;
+}
+.lang-select{
+  position:relative;
+  z-index:60;
+  flex:0 0 auto;
+}
+.lang-btn{
+  min-height:38px;
+  padding:0 12px;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:999px;
+  color:#f8fafc;
+  background:rgba(14,16,22,.78);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  font:inherit;
+  font-size:.86rem;
+  font-weight:700;
+  line-height:1;
+  cursor:pointer;
+  white-space:nowrap;
+  box-shadow:0 14px 34px rgba(0,0,0,.24);
+}
+.lang-btn:hover,
+.lang-btn[aria-expanded="true"]{
+  border-color:rgba(255,255,255,.36);
+  background:rgba(255,255,255,.08);
+}
+.lang-btn .globe{
+  font-size:1rem;
+  line-height:1;
+}
+.lang-dropdown{
+  position:absolute;
+  top:calc(100% + 8px);
+  right:0;
+  display:none;
+  width:min(268px,84vw);
+  max-height:min(430px,70vh);
+  padding:8px;
+  overflow:auto;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:12px;
+  background:rgba(10,12,16,.96);
+  box-shadow:0 24px 70px rgba(0,0,0,.48);
+  backdrop-filter:blur(18px);
+}
+.lang-dropdown.show{
+  display:grid;
+  gap:4px;
+}
+.lang-option{
+  min-height:38px;
+  padding:0 10px;
+  border:0;
+  border-radius:8px;
+  color:#dce3ed;
+  background:transparent;
+  display:grid;
+  grid-template-columns:28px 1fr auto;
+  align-items:center;
+  gap:8px;
+  font:inherit;
+  font-size:.86rem;
+  text-align:left;
+  cursor:pointer;
+}
+.lang-option:hover,
+.lang-option.active{
+  color:#05070a;
+  background:#f7f8fb;
+}
+.lang-option span:last-child{
+  color:inherit;
+  opacity:.58;
+  font-size:.72rem;
+  font-weight:800;
+}
+.rtl-lang .lang-dropdown{
+  right:auto;
+  left:0;
+}
+.rtl-lang .lang-option{
+  text-align:right;
+}
+@media(max-width:720px){
+  .header-actions{
+    gap:8px;
+    min-width:0;
+  }
+  .lang-btn{
+    min-height:42px;
+    padding:0 11px;
+    font-size:.82rem;
+  }
+  .lang-dropdown{
+    top:auto;
+    right:0;
+    bottom:calc(100% + 8px);
+    max-height:min(360px,62vh);
+  }
+}
+@media(max-width:420px){
+  .header-actions{
+    gap:6px;
+  }
+  .lang-btn{
+    padding:0 10px;
+  }
+  #currentLangLabel{
+    display:none;
+  }
+}

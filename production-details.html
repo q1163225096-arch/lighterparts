@@ -299,21 +299,23 @@ body{
   }
 }
 </style>
+<link rel="stylesheet" href="page-i18n.css">
 </head>
 <body>
 <header class="header">
-  <a class="logo" href="index.html#production">打火机生产制作工艺</a>
-  <button class="back" onclick="window.location.href='index.html#production'">返回生产工艺</button>
+  <a class="logo" href="index.html#production" data-i18n="production_detail_title">打火机生产制作工艺</a>
+  <button class="back" data-i18n="back_production" onclick="window.location.href='index.html#production'">返回生产工艺</button>
 </header>
 
 <main class="page">
   <div class="section-title">
-    <h1>打火机生产制作工艺</h1>
-    <p>Production process details</p>
+    <h1 data-i18n="production_detail_title">打火机生产制作工艺</h1>
+    <p data-i18n="production_detail_subtitle">生产工艺更多细节</p>
   </div>
   <div class="details-list" id="detailsList"></div>
 </main>
 
+<script src="page-i18n.js"></script>
 <script>
 const imageVersion = '202606131140';
 const detailImages = [
@@ -341,7 +343,7 @@ const detailImages = [
 
 document.getElementById('detailsList').innerHTML = detailImages.map((item, index) => {
   const image = `<img src="${item.src}" alt="生产工艺细节 ${index + 1}" loading="${index === 0 ? 'eager' : 'lazy'}" decoding="async" onerror="this.closest('.detail-image').classList.add('image-missing')">`;
-  const videoAction = `<span class="video-action-row"><span class="video-badge">查看视频</span></span>`;
+  const videoAction = `<span class="video-action-row"><span class="video-badge" data-i18n="view_video">查看视频</span></span>`;
   return `
     <figure class="detail-image${item.youtube ? ' is-linked' : ''}">
       ${item.youtube
@@ -350,6 +352,7 @@ document.getElementById('detailsList').innerHTML = detailImages.map((item, index
     </figure>
   `;
 }).join('');
+if(window.initPageI18n) initPageI18n();
 </script>
 </body>
 </html>

@@ -232,21 +232,23 @@ body{
   .detail-image{border-radius:6px}
 }
 </style>
+<link rel="stylesheet" href="page-i18n.css">
 </head>
 <body>
 <header class="header">
-  <a class="logo" href="index.html#exploded">打火机部件拆解图</a>
-  <button class="back" onclick="window.location.href='index.html#exploded'">返回部件拆解</button>
+  <a class="logo" href="index.html#exploded" data-i18n="exploded_detail_title">打火机部件拆解图</a>
+  <button class="back" data-i18n="back_exploded" onclick="window.location.href='index.html#exploded'">返回部件拆解</button>
 </header>
 
 <main class="page">
   <div class="section-title">
-    <h1>打火机部件拆解图</h1>
+    <h1 data-i18n="exploded_detail_title">打火机部件拆解图</h1>
   </div>
   <div class="category-filter" id="categoryFilter"></div>
   <div class="details-list" id="detailsList"></div>
 </main>
 
+<script src="page-i18n.js"></script>
 <script>
 const imageVersion = '20260615-user-0904';
 const detailImageRoot = 'images/01-部件拆解/更多拆解图-替换区';
@@ -259,6 +261,10 @@ const categories = [
 ];
 let currentCategory = categories[0].key;
 let zoomLevel = 1;
+
+function localized(text) {
+  return window.translatePageText ? translatePageText(text) : text;
+}
 
 function clampZoom(value) {
   return Math.max(0.5, Math.min(2.5, value));
@@ -299,7 +305,7 @@ function getActiveCategory() {
 function renderCategoryFilter() {
   document.getElementById('categoryFilter').innerHTML = categories.map(category => `
     <button class="category-btn${category.key === currentCategory ? ' active' : ''}" onclick="switchCategory('${category.key}')">
-      ${category.label}
+      ${localized(category.label)}
     </button>
   `).join('');
 }
@@ -308,9 +314,11 @@ function renderDetails() {
   const category = getActiveCategory();
   const file = category.files[0];
   const src = `${detailImageRoot}/${category.label}/${file}?v=${imageVersion}`;
+  const label = localized(category.label);
+  const suffix = window.pageT ? pageT('exploded_alt_suffix') : '拆解详情图';
   document.getElementById('detailsList').innerHTML = `
     <figure class="detail-image" onclick="toggleImageZoom()">
-      <img src="${src}" alt="${category.label}拆解详情图" loading="eager" decoding="async" onload="updateZoomControls()" onerror="this.parentElement.classList.add('image-missing')">
+      <img src="${src}" alt="${label}${suffix}" loading="eager" decoding="async" onload="updateZoomControls()" onerror="this.parentElement.classList.add('image-missing')">
     </figure>
   `;
   updateZoomControls();
@@ -321,6 +329,7 @@ function renderPage() {
   renderDetails();
 }
 
+if(window.initPageI18n) initPageI18n(() => renderPage());
 renderPage();
 </script>
 </body>
