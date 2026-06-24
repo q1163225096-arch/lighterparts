@@ -1,4 +1,4 @@
-User-agent: *
+﻿User-agent: *
 Allow: /
 
-Sitemap: https://lighterparts.netlify.app/sitemap.xml
+Sitemap: https://q1163225096-arch.github.io/lighterparts/sitemap.xml
