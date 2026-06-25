@@ -25,7 +25,7 @@
   ];
 
   const en = {
-    brand: 'Lighter Parts & Equipment',
+    brand: 'Lighter Parts & Automation Equipment',
     lighter: 'Lighters',
     more: 'More',
     more_lighters_title_main: 'More',
@@ -75,7 +75,7 @@
 
   const packs = {
     zh: {
-      brand: '打火机散件及设备',
+      brand: '打火机散件及自动化设备',
       lighter: '打火机',
       more: '更多',
       more_lighters_title_main: '更多',
@@ -125,7 +125,7 @@
     en,
     ja: {
       ...en,
-      brand: 'ライター部品と設備',
+      brand: 'ライター部品・自動化設備',
       lighter: 'ライター',
       more: 'もっと見る',
       more_lighters_title_main: 'その他の',
@@ -162,7 +162,7 @@
     },
     ko: {
       ...en,
-      brand: '라이터 부품 및 장비',
+      brand: '라이터 부품 및 자동화 설비',
       lighter: '라이터',
       more: '더보기',
       more_lighters_title_main: '더 많은',
@@ -199,7 +199,7 @@
     },
     es: {
       ...en,
-      brand: 'Piezas y equipos para encendedores',
+      brand: 'Piezas y Equipos Automatizados de Encendedor',
       lighter: 'Encendedores',
       more: 'Más',
       more_lighters_subtitle: 'Filtra estilos de encendedores por fábrica y categoría',
@@ -234,7 +234,7 @@
     },
     pt: {
       ...en,
-      brand: 'Peças e equipamentos para isqueiros',
+      brand: 'Peças e Equipamentos Automatizados para Isqueiro',
       lighter: 'Isqueiros',
       more: 'Mais',
       more_lighters_subtitle: 'Filtre estilos de isqueiro por fábrica e categoria',
@@ -266,7 +266,7 @@
     },
     fr: {
       ...en,
-      brand: 'Pièces et équipements de briquets',
+      brand: 'Pièces et équipements automatisés de briquet',
       lighter: 'Briquets',
       more: 'Plus',
       more_lighters_subtitle: 'Filtrer les modèles par usine et catégorie',
@@ -298,7 +298,7 @@
     },
     de: {
       ...en,
-      brand: 'Feuerzeugteile und Ausrüstung',
+      brand: 'Feuerzeugteile & Automatisierungsausrüstung',
       lighter: 'Feuerzeuge',
       more: 'Mehr',
       more_lighters_subtitle: 'Feuerzeugmodelle nach Fabrik und Kategorie filtern',
@@ -330,7 +330,7 @@
     },
     ru: {
       ...en,
-      brand: 'Детали и оборудование для зажигалок',
+      brand: 'Детали и автоматизированное оборудование для зажигалок',
       lighter: 'Зажигалки',
       more: 'Больше',
       more_lighters_subtitle: 'Фильтр моделей по фабрике и категории',
@@ -362,7 +362,7 @@
     },
     ar: {
       ...en,
-      brand: 'قطع ومعدات الولاعات',
+      brand: 'قطع الولاعات ومعدات الأتمتة',
       lighter: 'ولاعات',
       more: 'المزيد',
       more_lighters_subtitle: 'تصفية موديلات الولاعات حسب المصنع والفئة',
