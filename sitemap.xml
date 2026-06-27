@@ -3,36 +3,57 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://lighterparts.netlify.app/</loc>
-    <lastmod>2026-06-18</lastmod>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://lighterparts.netlify.app/images/wechat-share.png</image:loc>
       <image:title>打火机散件及自动化设备</image:title>
+      <image:caption>打火机零部件销售与技术平台</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://lighterparts.netlify.app/exploded-details.html</loc>
-    <lastmod>2026-06-18</lastmod>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://lighterparts.netlify.app/images/wechat-share.png</image:loc>
+      <image:title>打火机部件拆解图</image:title>
+      <image:caption>电子打火机、砂轮打火机、防风打火机和灯机部件拆解图</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://lighterparts.netlify.app/more-lighters.html</loc>
-    <lastmod>2026-06-18</lastmod>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://lighterparts.netlify.app/images/wechat-share.png</image:loc>
+      <image:title>更多打火机款式</image:title>
+      <image:caption>电子打火机、砂轮打火机、防风打火机、点火枪和点烟器款式图</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://lighterparts.netlify.app/more-molds.html</loc>
-    <lastmod>2026-06-18</lastmod>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://lighterparts.netlify.app/images/wechat-share.png</image:loc>
+      <image:title>打火机散件模具</image:title>
+      <image:caption>电子打火机、砂轮打火机、防风打火机和灯机模具图片</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://lighterparts.netlify.app/production-details.html</loc>
-    <lastmod>2026-06-18</lastmod>
+    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://lighterparts.netlify.app/images/wechat-share.png</image:loc>
+      <image:title>打火机生产制作工艺</image:title>
+      <image:caption>打火机注塑、焊接、充气、调火、检验和分色贴标工艺流程</image:caption>
+    </image:image>
   </url>
 </urlset>

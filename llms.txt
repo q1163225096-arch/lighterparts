@@ -1,0 +1,14 @@
+# 打火机散件及自动化设备
+
+站点：https://lighterparts.netlify.app/
+
+这是一个打火机零部件销售与技术资料平台，主要内容包括：
+
+- 打火机部件拆解图：https://lighterparts.netlify.app/exploded-details.html
+- 更多打火机款式：https://lighterparts.netlify.app/more-lighters.html
+- 打火机散件模具：https://lighterparts.netlify.app/more-molds.html
+- 打火机生产制作工艺：https://lighterparts.netlify.app/production-details.html
+
+关键词：打火机散件、打火机设备、打火机零部件、打火机模具、塑料模具、注塑机适配、打火机生产工艺、lighter parts、lighter machine、lighter mold。
+
+联系方式：15675907557
