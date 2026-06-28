@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://lighterparts.netlify.app/</loc>
-    <lastmod>2026-06-27</lastmod>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -11,49 +11,109 @@
       <image:title>打火机散件及自动化设备</image:title>
       <image:caption>打火机零部件销售与技术平台</image:caption>
     </image:image>
+    <image:image>
+      <image:loc>https://lighterparts.netlify.app/images/%E5%B0%81%E9%9D%A2-1.png</image:loc>
+      <image:title>打火机部件拆解与生产设备首页背景</image:title>
+      <image:caption>电子打火机、砂轮打火机、防风打火机部件拆解和自动化生产平台首页图</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://lighterparts.netlify.app/exploded-details.html</loc>
-    <lastmod>2026-06-27</lastmod>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
     <image:image>
-      <image:loc>https://lighterparts.netlify.app/images/wechat-share.png</image:loc>
-      <image:title>打火机部件拆解图</image:title>
-      <image:caption>电子打火机、砂轮打火机、防风打火机和灯机部件拆解图</image:caption>
+      <image:loc>https://lighterparts.netlify.app/images/01-%E9%83%A8%E4%BB%B6%E6%8B%86%E8%A7%A3/%E6%9B%B4%E5%A4%9A%E6%8B%86%E8%A7%A3%E5%9B%BE-%E6%9B%BF%E6%8D%A2%E5%8C%BA/%E7%94%B5%E5%AD%90%E6%89%93%E7%81%AB%E6%9C%BA/%E7%94%B5%E5%AD%90%E6%9C%BA%E7%BB%84%E6%88%90.png</image:loc>
+      <image:title>电子打火机拆解图</image:title>
+      <image:caption>电子打火机零部件结构拆解图</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://lighterparts.netlify.app/images/01-%E9%83%A8%E4%BB%B6%E6%8B%86%E8%A7%A3/%E6%9B%B4%E5%A4%9A%E6%8B%86%E8%A7%A3%E5%9B%BE-%E6%9B%BF%E6%8D%A2%E5%8C%BA/%E7%A0%82%E8%BD%AE%E6%89%93%E7%81%AB%E6%9C%BA/%E7%A0%82%E8%BD%AE%E6%9C%BA%E7%BB%84%E6%88%90.png</image:loc>
+      <image:title>砂轮打火机拆解图</image:title>
+      <image:caption>砂轮打火机零部件结构拆解图</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://lighterparts.netlify.app/images/01-%E9%83%A8%E4%BB%B6%E6%8B%86%E8%A7%A3/%E6%9B%B4%E5%A4%9A%E6%8B%86%E8%A7%A3%E5%9B%BE-%E6%9B%BF%E6%8D%A2%E5%8C%BA/%E9%98%B2%E9%A3%8E%E6%89%93%E7%81%AB%E6%9C%BA/%E9%98%B2%E9%A3%8E%E6%89%93%E7%81%AB%E6%9C%BA.jpg</image:loc>
+      <image:title>防风打火机拆解图</image:title>
+      <image:caption>防风打火机零部件结构拆解图</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://lighterparts.netlify.app/images/01-%E9%83%A8%E4%BB%B6%E6%8B%86%E8%A7%A3/%E6%9B%B4%E5%A4%9A%E6%8B%86%E8%A7%A3%E5%9B%BE-%E6%9B%BF%E6%8D%A2%E5%8C%BA/%E7%A0%82%E8%BD%AE%E6%88%90%E5%93%81%E5%A4%B4/%E7%A0%82%E8%BD%AE%E6%88%90%E5%93%81%E5%A4%B4%E6%8B%86%E8%A7%A3%E5%9B%BE.png</image:loc>
+      <image:title>砂轮成品头拆解图</image:title>
+      <image:caption>砂轮成品头零部件拆解图</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://lighterparts.netlify.app/images/01-%E9%83%A8%E4%BB%B6%E6%8B%86%E8%A7%A3/%E6%9B%B4%E5%A4%9A%E6%8B%86%E8%A7%A3%E5%9B%BE-%E6%9B%BF%E6%8D%A2%E5%8C%BA/%E7%81%AF%E6%9C%BA/%E7%81%AF%E6%9C%BA.png</image:loc>
+      <image:title>灯机拆解图</image:title>
+      <image:caption>灯机零部件结构拆解图</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://lighterparts.netlify.app/more-lighters.html</loc>
-    <lastmod>2026-06-27</lastmod>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
     <image:image>
-      <image:loc>https://lighterparts.netlify.app/images/wechat-share.png</image:loc>
-      <image:title>更多打火机款式</image:title>
-      <image:caption>电子打火机、砂轮打火机、防风打火机、点火枪和点烟器款式图</image:caption>
+      <image:loc>https://lighterparts.netlify.app/images/07-%E5%B7%A5%E5%8E%82%E4%B8%80/full-catalog/factory1-full-001.jpg</image:loc>
+      <image:title>打火机款式图片</image:title>
+      <image:caption>工厂打火机产品款式图片</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://lighterparts.netlify.app/images/08-%E5%B7%A5%E5%8E%82%E4%BA%8C/02-%E7%94%B5%E5%AD%90%E6%89%93%E7%81%AB%E6%9C%BA/13-E309.jpg</image:loc>
+      <image:title>电子打火机款式图</image:title>
+      <image:caption>电子打火机产品图片</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://lighterparts.netlify.app/images/08-%E5%B7%A5%E5%8E%82%E4%BA%8C/01-%E7%A0%82%E8%BD%AE%E6%89%93%E7%81%AB%E6%9C%BA/01-E620-1.jpg</image:loc>
+      <image:title>砂轮打火机款式图</image:title>
+      <image:caption>砂轮打火机产品图片</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://lighterparts.netlify.app/images/08-%E5%B7%A5%E5%8E%82%E4%BA%8C/03-%E9%98%B2%E9%A3%8E%E6%89%93%E7%81%AB%E6%9C%BA/04-F018.jpg</image:loc>
+      <image:title>防风打火机款式图</image:title>
+      <image:caption>防风打火机产品图片</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://lighterparts.netlify.app/more-molds.html</loc>
-    <lastmod>2026-06-27</lastmod>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
     <image:image>
-      <image:loc>https://lighterparts.netlify.app/images/wechat-share.png</image:loc>
-      <image:title>打火机散件模具</image:title>
-      <image:caption>电子打火机、砂轮打火机、防风打火机和灯机模具图片</image:caption>
+      <image:loc>https://lighterparts.netlify.app/images/03-%E6%A8%A1%E5%85%B7%E7%B3%BB%E7%BB%9F-%E4%B8%B4%E6%97%B6%E6%89%93%E7%81%AB%E6%9C%BA%E5%8D%A0%E4%BD%8D/%E7%94%B5%E5%AD%90%E6%89%93%E7%81%AB%E6%9C%BA/1%20(1).png</image:loc>
+      <image:title>电子打火机模具图片</image:title>
+      <image:caption>电子打火机散件模具展示图</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://lighterparts.netlify.app/images/03-%E6%A8%A1%E5%85%B7%E7%B3%BB%E7%BB%9F-%E4%B8%B4%E6%97%B6%E6%89%93%E7%81%AB%E6%9C%BA%E5%8D%A0%E4%BD%8D/%E7%A0%82%E8%BD%AE%E6%89%93%E7%81%AB%E6%9C%BA/01.jpg</image:loc>
+      <image:title>砂轮打火机模具图片</image:title>
+      <image:caption>砂轮打火机散件模具展示图</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://lighterparts.netlify.app/images/03-%E6%A8%A1%E5%85%B7%E7%B3%BB%E7%BB%9F-%E4%B8%B4%E6%97%B6%E6%89%93%E7%81%AB%E6%9C%BA%E5%8D%A0%E4%BD%8D/%E9%98%B2%E9%A3%8E%E6%89%93%E7%81%AB%E6%9C%BA/1%20(1).jpg</image:loc>
+      <image:title>防风打火机模具图片</image:title>
+      <image:caption>防风打火机散件模具展示图</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://lighterparts.netlify.app/production-details.html</loc>
-    <lastmod>2026-06-27</lastmod>
+    <lastmod>2026-06-28</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
     <image:image>
-      <image:loc>https://lighterparts.netlify.app/images/wechat-share.png</image:loc>
-      <image:title>打火机生产制作工艺</image:title>
-      <image:caption>打火机注塑、焊接、充气、调火、检验和分色贴标工艺流程</image:caption>
+      <image:loc>https://lighterparts.netlify.app/images/05-%E7%94%9F%E4%BA%A7%E5%B7%A5%E8%89%BA/%E6%9B%B4%E5%A4%9A%E7%BB%86%E8%8A%82/Feetoo-Product%20_%E9%A1%B5%E9%9D%A2_04.png</image:loc>
+      <image:title>打火机生产工艺流程图</image:title>
+      <image:caption>打火机注塑、插盘、焊接、充气、调火和检测流程</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://lighterparts.netlify.app/images/05-%E7%94%9F%E4%BA%A7%E5%B7%A5%E8%89%BA/%E6%9B%B4%E5%A4%9A%E7%BB%86%E8%8A%82/Feetoo-Product%20_%E9%A1%B5%E9%9D%A2_10.png</image:loc>
+      <image:title>打火机自动化生产设备细节</image:title>
+      <image:caption>打火机生产线设备和工艺步骤细节图片</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://lighterparts.netlify.app/images/05-%E7%94%9F%E4%BA%A7%E5%B7%A5%E8%89%BA/09%E4%BA%94%E8%89%B2%E6%9C%BA.png</image:loc>
+      <image:title>打火机分色贴标设备</image:title>
+      <image:caption>打火机生产工艺中的分色贴标设备</image:caption>
     </image:image>
   </url>
 </urlset>

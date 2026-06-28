@@ -1,6 +1,7 @@
 # 打火机散件及自动化设备
 
 站点：https://lighterparts.netlify.app/
+最后更新：2026-06-28
 
 这是一个打火机零部件销售与技术资料平台，主要内容包括：
 
@@ -8,6 +9,14 @@
 - 更多打火机款式：https://lighterparts.netlify.app/more-lighters.html
 - 打火机散件模具：https://lighterparts.netlify.app/more-molds.html
 - 打火机生产制作工艺：https://lighterparts.netlify.app/production-details.html
+
+主要主题：
+
+- 电子打火机、砂轮打火机、防风打火机、砂轮成品头、灯机的部件拆解与图片资料。
+- 打火机零部件材料名称、重量、起订量、参考价和备注信息。
+- 电子打火机模具、砂轮打火机模具、防风打火机模具、灯机模具图片。
+- 注塑、插盘、焊接、面阀、充气、调火、压机板、检验、分色贴标等生产工艺流程。
+- 注塑机适配矩阵和打火机自动化生产设备参考。
 
 关键词：打火机散件、打火机设备、打火机零部件、打火机模具、塑料模具、注塑机适配、打火机生产工艺、lighter parts、lighter machine、lighter mold。
 

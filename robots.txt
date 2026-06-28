@@ -3,11 +3,19 @@ Allow: /
 Allow: /images/
 Allow: /*.css$
 Allow: /*.js$
+Allow: /llms.txt
+Allow: /7b86f5a2f6f04b1c9576377e1d3e9f28.txt
 
 User-agent: Googlebot
 Allow: /
 
 User-agent: Bingbot
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+User-agent: YandexBot
 Allow: /
 
 User-agent: Baiduspider

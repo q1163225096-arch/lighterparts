@@ -29,6 +29,7 @@
 <link rel="shortcut icon" type="image/png" href="images/site-icon.png">
 <link rel="apple-touch-icon" href="images/site-icon.png">
 <link rel="manifest" href="site.webmanifest">
+<link rel="preload" as="image" href="images/封面-1.png?v=20260613084844" fetchpriority="high">
 <link rel="image_src" href="https://lighterparts.netlify.app/images/wechat-share.png">
 <meta name="thumbnail" content="https://lighterparts.netlify.app/images/wechat-share.png">
 <meta itemprop="name" content="打火机散件及自动化设备 - 零部件销售与技术平台">
@@ -47,7 +48,7 @@
 <meta property="og:image:width" content="624">
 <meta property="og:image:height" content="624">
 <meta property="og:image:alt" content="打火机散件及自动化设备 - 零部件销售与技术平台">
-<meta property="og:updated_time" content="2026-06-27T00:00:00+08:00">
+<meta property="og:updated_time" content="2026-06-28T00:00:00+08:00">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="https://lighterparts.netlify.app/">
 <meta name="twitter:title" content="打火机散件及自动化设备 - 零部件销售与技术平台">
@@ -102,7 +103,7 @@
       },
       "description": "打火机散件、原材料供应、打火机模具、注塑机适配和自动化生产工艺资料。",
       "primaryImageOfPage": "https://lighterparts.netlify.app/images/wechat-share.png",
-      "dateModified": "2026-06-27",
+      "dateModified": "2026-06-28",
       "inLanguage": "zh-CN",
       "hasPart": [
         {"@id": "https://lighterparts.netlify.app/exploded-details.html#webpage"},
@@ -132,6 +133,36 @@
         {"@type": "ListItem", "position": 2, "name": "更多打火机款式", "url": "https://lighterparts.netlify.app/more-lighters.html"},
         {"@type": "ListItem", "position": 3, "name": "打火机散件模具", "url": "https://lighterparts.netlify.app/more-molds.html"},
         {"@type": "ListItem", "position": 4, "name": "打火机生产制作工艺", "url": "https://lighterparts.netlify.app/production-details.html"}
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://lighterparts.netlify.app/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "这个网站提供哪些打火机散件资料？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "网站提供电子打火机、砂轮打火机、防风打火机、砂轮成品头和灯机的部件拆解图、原材料供应信息、塑料模具图片、注塑机适配参数和生产工艺流程。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "可以查看打火机自动化生产设备流程吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可以。生产工艺页面展示注塑、插盘、焊接、面阀、充气、调火、压机板、检验和分色贴标等自动化生产环节。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "如何联系打火机散件及设备供应？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可通过页面右侧 WhatsApp 图标或电话 15675907557 联系，微信同号。"
+          }
+        }
       ]
     },
     {
@@ -575,6 +606,34 @@ tr:hover td{background:rgba(240,160,64,0.05)}
 .friend-links a:hover{color:#f0a040}
 .friend-contact{color:#777}
 .friend-contact a{color:#8d949a}
+.seo-summary{
+  max-width:980px;
+  margin:0 auto 18px;
+  padding:18px 20px;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:8px;
+  background:rgba(255,255,255,.025);
+  text-align:left;
+}
+.seo-summary h2{
+  margin-bottom:8px;
+  color:#f0a040;
+  font-size:1rem;
+}
+.seo-summary p{
+  margin-bottom:10px;
+  color:#9aa3ad;
+}
+.seo-summary ul{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px 14px;
+}
+.seo-summary a{
+  color:#c8d3df;
+  font-size:.82rem;
+}
+.seo-summary a:hover{color:#f0a040}
 
 @media(max-width:960px){
   .exploded-container{flex-direction:column}
@@ -6720,7 +6779,7 @@ body.single-view-mode #production .section-title p{
     <div class="hero-glow hero-glow-a"></div>
     <div class="hero-glow hero-glow-b"></div>
     <div class="hero-showcase-frame">
-      <img id="heroShowcaseImage" class="hero-showcase-image" src="images/01-部件拆解/更多拆解图-替换区/电子打火机/电子机组成.png" alt="">
+      <img id="heroShowcaseImage" class="hero-showcase-image" src="images/01-部件拆解/更多拆解图-替换区/电子打火机/电子机组成.png" alt="电子打火机部件拆解展示图" loading="eager" decoding="async" fetchpriority="high">
     </div>
     <div class="hero-showcase-caption" id="heroShowcaseCaption">部件拆解 · Parts System</div>
   </div>
@@ -6861,6 +6920,17 @@ body.single-view-mode #production .section-title p{
   <div class="process-grid" id="processGrid"></div>
 </section>
 
+<section class="seo-summary" aria-label="搜索引擎内容摘要">
+  <h2 data-i18n="seo_summary_title">打火机散件、模具与自动化生产设备资料</h2>
+  <p data-i18n="seo_summary_copy">本站面向打火机零部件采购、模具开发和设备自动化生产，整理电子打火机、砂轮打火机、防风打火机、砂轮成品头和灯机相关的部件名称、材料重量、模具图片、注塑机适配和生产工艺流程。</p>
+  <ul>
+    <li><a href="exploded-details.html" data-i18n="seo_link_parts">打火机部件拆解图</a></li>
+    <li><a href="more-lighters.html" data-i18n="seo_link_lighters">电子/砂轮/防风打火机款式</a></li>
+    <li><a href="more-molds.html" data-i18n="seo_link_molds">打火机散件塑料模具</a></li>
+    <li><a href="production-details.html" data-i18n="seo_link_process">打火机自动化生产工艺</a></li>
+  </ul>
+</section>
+
 <footer class="footer">
   <div class="friend-links">
     <strong data-i18n="friend_links">友情链接</strong>
@@ -6897,6 +6967,12 @@ const i18n = {
     machine_title:'注塑机',machine_title2:'适配矩阵',machine_subtitle:'模具与注塑机的匹配关系——什么模具必须使用什么规格的注塑机',
     machine_small:'小型注塑机',machine_medium:'中型注塑机',machine_large:'大型注塑机',
     more_lighters:'更多打火机',more_molds:'更多模具',
+    seo_summary_title:'打火机散件、模具与自动化生产设备资料',
+    seo_summary_copy:'本站面向打火机零部件采购、模具开发和设备自动化生产，整理电子打火机、砂轮打火机、防风打火机、砂轮成品头和灯机相关的部件名称、材料重量、模具图片、注塑机适配和生产工艺流程。',
+    seo_link_parts:'打火机部件拆解图',
+    seo_link_lighters:'电子/砂轮/防风打火机款式',
+    seo_link_molds:'打火机散件塑料模具',
+    seo_link_process:'打火机自动化生产工艺',
     friend_links:'友情链接',friend_lighter_equipment:'打火机设备',contact_label:'联系方式：',wechat_same:'（微信同号）',
     prod_title:'工艺流程',prod_subtitle:'从原料到成品的完整制造工艺路线图',more_exploded_details:'更多拆解图',more_process_details:'更多细节',
     col_pid:'部件编号',col_spec:'规格',col_moq:'起订量(万)',col_unit_price:'单件价格(CNY)',col_bulk_price:'万件以上价格(CNY)',col_note:'备注',
@@ -6931,6 +7007,12 @@ const i18n = {
     machine_title:'Injection Molding',machine_title2:'Machine Matrix',machine_subtitle:'Mold-to-machine compatibility which mold requires which injection machine',
     machine_small:'Small Machines',machine_medium:'Medium Machines',machine_large:'Large Machines',
     more_lighters:'More Lighters',more_molds:'More Molds',
+    seo_summary_title:'Lighter parts, molds and automated production equipment',
+    seo_summary_copy:'This site organizes lighter parts purchasing information, mold development data and automated production references for electronic lighters, flint wheel lighters, windproof lighters, flint heads and lamp lighters, including part names, material weight, mold images, injection molding compatibility and production process details.',
+    seo_link_parts:'Lighter parts exploded diagrams',
+    seo_link_lighters:'Electronic, flint and windproof lighter styles',
+    seo_link_molds:'Plastic molds for lighter parts',
+    seo_link_process:'Automated lighter production process',
     friend_links:'Links',friend_lighter_equipment:'Lighter Equipment',contact_label:'Contact: ',wechat_same:' (same as WeChat)',
     prod_title:'Process Flow',prod_subtitle:'Complete manufacturing process route from raw material to finished product',more_exploded_details:'More Diagrams',more_process_details:'More Details',
     col_pid:'Part ID',col_spec:'Specification',col_moq:'MOQ',col_unit_price:'Unit Price(CNY)',col_bulk_price:'10K+ Price(CNY)',col_note:'Notes',
