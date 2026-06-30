@@ -6732,6 +6732,88 @@ body.single-view-mode #production .section-title p{
   }
 }
 
+/* Final SH injection machine cards */
+#machines .machine-grid{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:20px!important;
+  max-width:980px!important;
+  margin:0 auto!important;
+}
+#machines .machine-card{
+  min-width:0!important;
+  padding:22px!important;
+  border-radius:8px!important;
+}
+#machines .machine-card h4{
+  min-height:auto!important;
+  margin-bottom:14px!important;
+  font-size:1.1rem!important;
+  line-height:1.25!important;
+}
+#machines .machine-card .specs{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:10px!important;
+}
+#machines .machine-card .spec-item{
+  padding:8px 10px!important;
+}
+#machines .machine-card .spec-label{
+  font-size:.74rem!important;
+}
+#machines .machine-card .specs .sv{
+  font-size:.84rem!important;
+}
+#machines .machine-card .compat{
+  margin-top:14px!important;
+  padding-top:14px!important;
+}
+#machines .machine-note{
+  margin-top:10px;
+  color:#788391;
+  font-size:.72rem;
+}
+@media(max-width:720px){
+  #machines .machine-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:8px!important;
+  }
+  #machines .machine-card{
+    padding:10px 7px!important;
+  }
+  #machines .machine-card h4{
+    font-size:.95rem!important;
+    margin-bottom:8px!important;
+    text-align:center!important;
+  }
+  #machines .machine-card .specs{
+    gap:5px!important;
+  }
+  #machines .machine-card .spec-item{
+    align-items:center!important;
+    justify-content:center!important;
+    min-height:42px!important;
+    padding:4px 3px!important;
+    text-align:center!important;
+  }
+  #machines .machine-card .spec-label{
+    font-size:.5rem!important;
+    text-align:center!important;
+  }
+  #machines .machine-card .specs .sv{
+    font-size:.56rem!important;
+    text-align:center!important;
+  }
+  #machines .machine-card .compat h5,
+  #machines .machine-note{
+    font-size:.52rem!important;
+  }
+  #machines .machine-card .compat-tag{
+    font-size:.5rem!important;
+    padding:2px 4px!important;
+  }
+}
+
 </style>
 </head>
 <body class="single-view-mode">
@@ -6904,13 +6986,13 @@ body.single-view-mode #production .section-title p{
     <p data-i18n="machine_subtitle">模具与注塑机的匹配关系——什么模具必须使用什么规格的注塑机</p>
   </div>
   <div class="tabs" id="machineTabs">
-    <button class="tab-btn active" data-tab="small" data-i18n="machine_small">小型注塑机</button>
-    <button class="tab-btn" data-tab="medium" data-i18n="machine_medium">中型注塑机</button>
-    <button class="tab-btn" data-tab="large" data-i18n="machine_large">大型注塑机</button>
+    <button class="tab-btn active" data-tab="injection" data-i18n="machine_injection">注射部分</button>
+    <button class="tab-btn" data-tab="clamping" data-i18n="machine_clamping">锁模部分</button>
+    <button class="tab-btn" data-tab="other" data-i18n="machine_other">其他部分</button>
   </div>
-  <div class="tab-panel active" id="panel-small"><div class="machine-grid" id="machineGridSmall"></div></div>
-  <div class="tab-panel" id="panel-medium"><div class="machine-grid" id="machineGridMedium"></div></div>
-  <div class="tab-panel" id="panel-large"><div class="machine-grid" id="machineGridLarge"></div></div>
+  <div class="tab-panel active" id="panel-injection"><div class="machine-grid" id="machineGridInjection"></div></div>
+  <div class="tab-panel" id="panel-clamping"><div class="machine-grid" id="machineGridClamping"></div></div>
+  <div class="tab-panel" id="panel-other"><div class="machine-grid" id="machineGridOther"></div></div>
 </section>
 
 <!-- ========== Production Process ========== -->
@@ -6967,8 +7049,10 @@ const i18n = {
     col_part:'图片',col_type:'所属类型',col_material_name:'名称',col_material:'主要原材料',col_grade:'材料牌号/规格',
     col_feature:'材料特性要求',col_weight:'重量(g)',col_supplier:'建议供应商类型',col_ref_price:'参考价(CNY)',col_remark:'备注',
     mold_title:'塑料模具',mold_title2:'系统',mold_subtitle:'塑料部件的模具设计参数、模具钢材选用及型腔布局',
-    machine_title:'注塑机',machine_title2:'适配矩阵',machine_subtitle:'模具与注塑机的匹配关系——什么模具必须使用什么规格的注塑机',
+    machine_title:'注塑机',machine_title2:'适配矩阵',machine_subtitle:'SH128 与 SH168 注塑机参数及塑料模具适配范围',
     machine_small:'小型注塑机',machine_medium:'中型注塑机',machine_large:'大型注塑机',
+    machine_injection:'注射部分',machine_clamping:'锁模部分',machine_other:'其他部分',
+    machine_compatible_molds:'适配塑料模具',machine_no_metal_molds:'不适配金属模具',
     more_lighters:'更多打火机',more_molds:'更多模具',
     seo_summary_title:'打火机散件、模具与自动化生产设备资料',
     seo_summary_copy:'本站面向打火机零部件采购、模具开发和设备自动化生产，整理电子打火机、砂轮打火机、防风打火机、砂轮成品头和灯机相关的部件名称、材料重量、模具图片、注塑机适配和生产工艺流程。',
@@ -7007,8 +7091,10 @@ const i18n = {
     col_part:'Part Image',col_type:'Category',col_material_name:'Material Name',col_material:'Raw Material',col_grade:'Grade/Spec',
     col_feature:'Material Requirements',col_weight:'Weight per Unit(g)',col_supplier:'Suggested Supplier',col_ref_price:'Reference Price(CNY)',col_remark:'Remark',
     mold_title:'Plastic Mold',mold_title2:'System',mold_subtitle:'Mold design parameters, steel selection and cavity layout for plastic parts',
-    machine_title:'Injection Molding',machine_title2:'Machine Matrix',machine_subtitle:'Mold-to-machine compatibility which mold requires which injection machine',
+    machine_title:'Injection Molding',machine_title2:'Machine Matrix',machine_subtitle:'SH128 and SH168 parameters with compatible plastic mold ranges',
     machine_small:'Small Machines',machine_medium:'Medium Machines',machine_large:'Large Machines',
+    machine_injection:'Injection Unit',machine_clamping:'Clamping Unit',machine_other:'Other Specs',
+    machine_compatible_molds:'Compatible Plastic Molds',machine_no_metal_molds:'Metal molds are not supported',
     more_lighters:'More Lighters',more_molds:'More Molds',
     seo_summary_title:'Lighter parts, molds and automated production equipment',
     seo_summary_copy:'This site organizes lighter parts purchasing information, mold development data and automated production references for electronic lighters, flint wheel lighters, windproof lighters, flint heads and lamp lighters, including part names, material weight, mold images, injection molding compatibility and production process details.',
@@ -7321,7 +7407,7 @@ const dynamicText = {
     '风罩':'Wind Shield','海绵':'Sponge','吸杆':'Wick Tube','锌套':'Zinc Sleeve','垫片':'Gasket','底盖':'Bottom Cover','拨火环':'Flame Adjust Ring','按键':'Button','机壳':'Body Shell','压电':'Piezo','白螺丝':'White Screw','翘板':'Lever','萤火弹簧':'Spark Spring','螺套':'Screw Sleeve','充气底座':'Gas Refill Base','成品头':'Finished Head','充气底':'Gas Refill Base','小套体':'Small Tank Cover','弹簧':'Spring','支架':'Bracket','砂轮石':'Flint Stone','调火环':'Flame Adjust Ring','钢轮':'Steel Wheel','防风罩':'Wind Shield','电子':'Electronic Unit','节气阀':'Gas Valve','打火机':'Lighter','塑料外壳':'Plastic Shell','灯机头':'Lamp Head','电池仓':'Battery Holder','电池':'Battery','导电片':'Conductive Plate','灯总成':'Lamp Assembly','LED灯':'LED','拨片':'Toggle Plate','砂轮机':'Flint Machine',
     '机身外壳模具':'Body Shell Mold','按手按钮模具':'Button Mold','底座模具':'Base Mold','销售底座模具':'Sales Base Mold','底盖模具':'Bottom Cover Mold','风罩模具':'Wind Shield Mold','桥板模具':'Bridge Plate Mold','调火环旋钮模具':'Flame Adjust Knob Mold','灯外壳模具':'Lamp Shell Mold','导电片模具':'Conductive Plate Mold','拨片模具':'Toggle Plate Mold','机壳模具':'Body Shell Mold','机头外壳模具':'Head Shell Mold','砂轮-桥板模模具':'Flint Bridge Mold','小套体模具':'Small Body Mold','充气底模具':'Gas Refill Base Mold','防风罩模具':'Windproof Guard Mold','按键模具':'Button Mold','拨火环模具':'Flame Adjust Ring Mold','翘板模具':'Lever Mold','调火环模具':'Flame Adjust Ring Mold',
     '模具钢':'Mold Steel','钢':'Steel','模具':'Mold','专用结构':'Dedicated structure','电子打火机专用结构':'Electronic Lighter dedicated structure','灯机专用结构':'Lamp Lighter dedicated structure','防风打火机专用结构':'Windproof Lighter dedicated structure','砂轮打火机专用结构':'Flint Wheel Lighter dedicated structure','按产品定制':'Customized by product','冲孔、切边、折弯工位预留':'Punching, trimming and bending stations reserved','浇口、顶出、冷却水路按产品定制':'Gate, ejector and cooling channels customized by product','连续冲压模架':'progressive die base','型腔':'Cavity','型芯':'Core','模架':'Mold base','冲压 / 折弯成型 / 连续模':'Stamping / bending / progressive die','两板 / 冷流 / 侧浇':'Two-plate / cold runner / side gate','三板 / 点浇 / 潜伏式浇口':'Three-plate / pinpoint / submarine gate','按产品排样定制':'Customized layout','按产品结构定制':'Customized by structure','高速冲 / 折弯设备':'High-speed press / bending equipment','注塑机':'Injection molding machine','连续冲压':'Progressive stamping','90-128吨':'90-128 tons','100-128吨':'100-128 tons','120-128吨':'120-128 tons','120-200吨':'120-200 tons','90-128吨注塑机':'90-128 ton injection machine','100-128吨注塑机':'100-128 ton injection machine','120-128吨注塑机':'120-128 ton injection machine','120-200吨注塑机':'120-200 ton injection machine','160-200吨注塑机':'160-200 ton injection machine','30-80万模':'300k-800k shots','80-120万冲':'800k-1.2M strokes','12-20秒':'12-20 sec','18-28秒':'18-28 sec',
-    '锁模力':'Clamping force','螺杆直径':'Screw diameter','最大射出量':'Max shot volume','拉杆间距':'Tie-bar spacing','吨':' tons','密封圈模':'Seal ring mold','吸杆挤出':'Wick tube extrusion','按手模具':'Button mold','上盖壳模':'Top cover mold','点火按手模具':'Ignition button mold','调火环模':'Flame adjust ring mold','按钮模具':'Button mold','小型盖件模具':'Small cover mold','外壳模具':'Shell mold','电子外壳':'Electronic shell','砂轮外壳':'Flint shell','防风外壳':'Windproof shell','机身外壳模具':'Body shell mold','底座组合模具':'Base assembly mold','中型外壳模具':'Medium shell mold','多腔外壳':'Multi-cavity shell','大型外壳一体成型':'Large shell integrated molding','多件组合模具':'Multi-part assembly mold','大尺寸外壳':'Large-size shell','多腔外壳模具':'Multi-cavity shell mold','大型组合模具':'Large assembly mold','高产能注塑排布':'High-output injection layout','海天 MA900':'Haitian MA900','震雄 JM128':'Chen Hsong JM128','伊之密 UN120':'Yizumi UN120','海天 MA1600':'Haitian MA1600','伊之密 UN200':'Yizumi UN200','震雄 JM218':'Chen Hsong JM218','海天 MA2500':'Haitian MA2500','震雄 JM328':'Chen Hsong JM328','伊之密 UN320':'Yizumi UN320',
+    '锁模力':'Clamping force','锁模行程':'Clamping stroke','模具厚度':'Mold thickness','四柱内间距':'Tie-bar spacing','顶出力':'Ejector force','顶针行程':'Ejector stroke','顶针杆数量':'Ejector rod count','螺杆直径':'Screw diameter','注射压力':'Injection pressure','螺杆长径比':'Screw L/D ratio','螺杆行程':'Screw stroke','注射容量':'Injection capacity','理论注射量(PS)':'Theoretical shot(PS)','射台推力':'Injection unit thrust','螺杆速度':'Screw speed','射出行程':'Injection stroke','液压系统力':'Hydraulic pressure','温控数量':'Temperature zones','伺服电机':'Servo motor','电热':'Heater power','总功率':'Total power','净重':'Net weight','尺寸(长×宽×高)':'Size(L×W×H)','油箱容量':'Oil tank capacity','最大射出量':'Max shot volume','拉杆间距':'Tie-bar spacing','吨':' tons','密封圈模':'Seal ring mold','吸杆挤出':'Wick tube extrusion','按手模具':'Button mold','上盖壳模':'Top cover mold','点火按手模具':'Ignition button mold','调火环模':'Flame adjust ring mold','按钮模具':'Button mold','小型盖件模具':'Small cover mold','外壳模具':'Shell mold','电子外壳':'Electronic shell','砂轮外壳':'Flint shell','防风外壳':'Windproof shell','机身外壳模具':'Body shell mold','底盖模具':'Bottom cover mold','机壳模具':'Body shell mold','按手按钮模具':'Button mold','销售底座模具':'Sales base mold','调火环旋钮模具':'Flame adjust knob mold','小套体模具':'Small body mold','充气底模具':'Gas refill base mold','底座组合模具':'Base assembly mold','中型外壳模具':'Medium shell mold','多腔外壳':'Multi-cavity shell','大型外壳一体成型':'Large shell integrated molding','多件组合模具':'Multi-part assembly mold','大尺寸外壳':'Large-size shell','多腔外壳模具':'Multi-cavity shell mold','大型组合模具':'Large assembly mold','高产能注塑排布':'High-output injection layout','海天 MA900':'Haitian MA900','震雄 JM128':'Chen Hsong JM128','伊之密 UN120':'Yizumi UN120','海天 MA1600':'Haitian MA1600','伊之密 UN200':'Yizumi UN200','震雄 JM218':'Chen Hsong JM218','海天 MA2500':'Haitian MA2500','震雄 JM328':'Chen Hsong JM328','伊之密 UN320':'Yizumi UN320',
     '注塑':'Injection','插盘':'Tray Loading','焊接':'Welding','面阀':'Face Valve','充气':'Gas Filling','调火':'Flame Adjustment','翻版':'Turning Plate','压制板':'Turning Plate','检验':'Inspection','分色贴标':'Color Sorting & Labeling','五色':'Color Sorting & Labeling','打包发货':'Packing & Shipping','注塑机':'Injection Machine','插盘机':'Tray Loader','焊接机':'Welding Machine','面阀机':'Face Valve Machine','充气机':'Gas Filling Machine','调火机':'Flame Adjustment Machine','检验机':'Inspection Machine','分色贴标机':'Color Sorting & Labeling Machine','五色机':'Color Sorting & Labeling Machine','贴标包纸机':'Label & Paper Wrapping Machine',
     '原料干燥、配色混合后注入模具成型':'Dry raw material, mix colors, then inject into the mold','把注塑件按统一方向插入工装盘，进入后续装配':'Load molded parts into trays in one direction for assembly','将螺套、底盖等部件焊接固定到机壳上':'Weld screw sleeves, bottom covers and other parts to the shell','安装面阀与相关密封部件，保证出气稳定':'Install face valve and seals for stable gas output','将丁烷气体充入储气腔并检查密封状态':'Fill butane gas and check sealing','把火焰高度和出气量调到标准范围':'Adjust flame height and gas flow to standard range','压合机板与组件位置，完成关键结构定型':'Press plate and component position to form the key structure','对外观、气密和点火状态进行在线检查':'Inspect appearance, air tightness and ignition online','按颜色或规格进行分拣排列，便于后续包装出货':'Sort by color or specification for packing and shipment','贴标/包纸完成后装箱，进入发货出库流程':'After labeling or paper wrapping, pack into cartons for shipment',
     '工程塑料':'Engineering Plastic','金属材料':'Metal Material','电子组件':'Electronic Component','纤维件':'Fiber Part','消耗件':'Consumable','橡胶件':'Rubber Part',
@@ -7496,8 +7582,8 @@ function switchLighter(type) {
 }
 
 // ==================== CONTENT_EDIT_ENTRY / 内容维护入口 ====================
-// 这里是网站最常修改的内容数据// 1. 部件拆解：allPartsData、lighterParts、partNamesCN、各 *PartDefinitions、currentPartAssets
-// 2. 原材料供应：renderMaterials() 里的 groups/materialMeta
+// 这里是网站最常修改的内容数据// 1. 部件拆解与原材料供应：currentPartAssets 通过 setCurrentPart() 生成统一字段
+// 2. 原材料表格分类：renderMaterials() 里的 groups
 // 3. 模具系统：renderMolds() 里的 moldCategories
 // 4. 注塑机适配：renderMachines() 里的 machines
 // 5. 生产工艺：renderProcessFlow() 里的 steps
@@ -7573,7 +7659,7 @@ const partCanvasLayouts = {
 };
 
 // Current local asset mapping. Keep this layer aligned with files in images/01-部件拆解.
-function setCurrentPart(key, name, src, id, type = 'plastic', material = '待填', process = '待填', weight = '') {
+function setCurrentPart(key, name, src, id, type = 'plastic', material = '待填', process = '待填', weight = '', moq = '10', refPrice = '私聊', remark = '看样品') {
   allPartsData[key] = {
     ...(allPartsData[key] || {}),
     icon: src,
@@ -7584,8 +7670,18 @@ function setCurrentPart(key, name, src, id, type = 'plastic', material = '待填
     material,
     process,
     weight,
-    moq: '待填',
-    info: [['type', type], ['material', material], ['process', process], ['weight', weight], ['moq', '待填']]
+    moq,
+    refPrice,
+    remark,
+    info: [
+      ['type', type],
+      ['material', material],
+      ['process', process],
+      ['weight', weight],
+      ['moq', moq],
+      ['refPrice', refPrice],
+      ['remark', remark]
+    ]
   };
   partNamesCN[key] = name;
 }
@@ -7943,6 +8039,32 @@ function initPartNav() {
   ).join('');
 }
 
+function getPartTypeLabel(type) {
+  const t = (k) => i18n[currentLang]?.[k] || i18n.en?.[k] || i18n.zh[k] || k;
+  const labelKey = {
+    plastic:'material_plastic',
+    metal:'material_metal',
+    electronic:'material_electronic',
+    fiber:'material_fiber',
+    consumable:'material_consumable',
+    rubber:'material_rubber'
+  }[type];
+  return labelKey ? t(labelKey) : dyn(type || '');
+}
+
+function getMaterialRowData(key) {
+  const data = allPartsData[key] || {};
+  return {
+    type: getPartTypeLabel(data.type),
+    material: data.material || '待填',
+    process: data.process || '待填',
+    weight: data.weight || '',
+    moq: data.moq || '10',
+    refPrice: data.refPrice || '私聊',
+    remark: data.remark || '看样品'
+  };
+}
+
 function selectPart(key) {
   currentActivePart = key;
   const data = allPartsData[key];
@@ -7953,12 +8075,21 @@ function selectPart(key) {
   document.getElementById('infoId').textContent = 'ID: ' + data.id;
 
   const grid = document.getElementById('infoGrid');
-  grid.innerHTML = data.info.map(([labelK, val]) => {
-    const infoLabelKey = {type:'part_type', material:'part_material', process:'part_process', weight:'part_weight', moq:'part_moq'}[labelK] || labelK;
+  const materialRow = getMaterialRowData(key);
+  const detailRows = [
+    ['part_type', materialRow.type],
+    ['part_material', materialRow.material],
+    ['part_process', materialRow.process],
+    ['col_weight', materialRow.weight],
+    ['col_moq', materialRow.moq],
+    ['col_ref_price', materialRow.refPrice],
+    ['col_remark', materialRow.remark]
+  ];
+  grid.innerHTML = detailRows.map(([labelK, val]) => {
     let displayVal = val;
     if (i18n[currentLang]?.[val]) displayVal = i18n[currentLang][val];
     displayVal = dyn(displayVal);
-    return `<div class="info-row"><span class="ilabel">${t(infoLabelKey)}</span><span class="ivalue${!val || val === '待报价' ? ' blank' : ''}">${displayVal}</span></div>`;
+    return `<div class="info-row"><span class="ilabel">${t(labelK)}</span><span class="ivalue${!val || val === '待填' || val === '待报价' ? ' blank' : ''}">${displayVal}</span></div>`;
   }).join('');
 
   const moldDiv = document.getElementById('infoMold');
@@ -7987,7 +8118,6 @@ function selectPart(key) {
 
 // ==================== Dynamic Tables / 动态内容渲染 ====================
 function renderMaterials() {
-  const t = (k) => i18n[currentLang]?.[k] || i18n.en?.[k] || i18n.zh[k] || k;
   const filter = document.getElementById('materialsFilter');
   const groups = [
     {key:'electronic', label:'电子打火机', parts:lighterParts.electronic || []},
@@ -7997,23 +8127,6 @@ function renderMaterials() {
     {key:'lamp', label:'灯机', parts:lighterParts.lamp || []}
   ];
   if (!groups.some(g => g.key === currentMaterialGroup)) currentMaterialGroup = groups[0].key;
-  const materialMeta = {
-    plastic:{name:'工程塑料', feature:'尺寸稳定、耐热、适合注塑', price:'7-28/kg'},
-    metal:{name:'金属材料', feature:'耐腐蚀、耐磨、易加工', price:'8-65/kg'},
-    electronic:{name:'电子组件', feature:'高压输出、绝缘稳定', price:'0.18-0.35/套'},
-    fiber:{name:'纤维件', feature:'吸油性好、耐高温', price:'0.025-0.06/条'},
-    consumable:{name:'消耗件', feature:'稳定消耗、批量一致', price:'0.01-0.06/件'},
-    rubber:{name:'橡胶件', feature:'耐油、耐丁烷渗透', price:'0.015-0.04/件'}
-  };
-  const typeLabel = (type) => ({
-    plastic:t('material_plastic'),
-    metal:t('material_metal'),
-    electronic:t('material_electronic'),
-    fiber:t('material_fiber'),
-    consumable:t('material_consumable'),
-    rubber:t('material_rubber')
-  }[type] || type || '-');
-  const moqText = (value) => value && value !== '待填' ? value.replace('pcs','件').replace(/,/g,'') : '10000件';
   if (filter) {
     filter.innerHTML = groups.map(g =>
       `<button class="materials-filter-btn${g.key === currentMaterialGroup ? ' active' : ''}" onclick="currentMaterialGroup='${g.key}';renderMaterials()">${dyn(g.label)}<span class="count">(${g.parts.length})</span></button>`
@@ -8021,15 +8134,14 @@ function renderMaterials() {
   }
   const active = groups.find(g => g.key === currentMaterialGroup) || groups[0];
   const rows = active.parts.map(key => {
-    const data = allPartsData[key] || {};
-    const meta = materialMeta[data.type] || materialMeta.plastic;
+    const materialRow = getMaterialRowData(key);
     return [
       key,
       dyn(getPartName(key)),
-      dyn(data.weight || ''),
-      '10',
-      dyn('私聊'),
-      dyn('看样品')
+      dyn(materialRow.weight),
+      dyn(materialRow.moq),
+      dyn(materialRow.refPrice),
+      dyn(materialRow.remark)
     ];
   });
   const body = document.getElementById('materialsBody');
@@ -8152,33 +8264,31 @@ function renderMolds() {
 }
 
 const machineData = {
-  small: [
-    {name:'海天 MA900',specs:[['锁模力','90吨'],['螺杆直径','Φ28mm'],['最大射出量','85g(PS)'],['拉杆间距','360×360mm']],tags:['密封圈模','吸杆挤出','按手模具','上盖壳模']},
-    {name:'震雄 JM128',specs:[['锁模力','128吨'],['螺杆直径','Φ32mm'],['最大射出量','128g(PS)'],['拉杆间距','410×410mm']],tags:['按手模具','底座模具','点火按手模具']},
-    {name:'伊之密 UN120',specs:[['锁模力','120吨'],['螺杆直径','Φ32mm'],['最大射出量','115g(PS)'],['拉杆间距','400×400mm']],tags:['调火环模','按钮模具','小型盖件模具']}
+  injection: [
+    {name:'SH128',specs:[['螺杆直径','50mm'],['注射压力','141Mpa'],['螺杆长径比','19:1'],['螺杆行程','172mm'],['注射容量','315cm³'],['理论注射量(PS)','11OZ'],['射台推力','54牛'],['螺杆速度','180转/分钟'],['射出行程','260mm']],tags:['按手按钮模具','底座模具','销售底座模具','调火环旋钮模具','小套体模具','充气底模具','按键模具','拨火环模具','灯外壳模具']},
+    {name:'SH168',specs:[['螺杆直径','55mm'],['注射压力','143Mpa'],['螺杆长径比','19:1'],['螺杆行程','186mm'],['注射容量','442cm³'],['理论注射量(PS)','14OZ'],['射台推力','60牛'],['螺杆速度','150转/分钟'],['射出行程','260mm']],tags:['机身外壳模具','底盖模具','机壳模具']}
   ],
-  medium: [
-    {name:'海天 MA1600',specs:[['锁模力','160吨'],['螺杆直径','Φ40mm'],['最大射出量','260g(PS)'],['拉杆间距','460×460mm']],tags:['外壳模具','电子外壳','砂轮外壳','防风外壳']},
-    {name:'伊之密 UN200',specs:[['锁模力','200吨'],['螺杆直径','Φ45mm'],['最大射出量','355g(PS)'],['拉杆间距','510×510mm']],tags:['外壳模具','电子外壳','防风外壳']},
-    {name:'震雄 JM218',specs:[['锁模力','218吨'],['螺杆直径','Φ45mm'],['最大射出量','390g(PS)'],['拉杆间距','520×520mm']],tags:['机身外壳模具','底座组合模具','中型外壳模具']}
+  clamping: [
+    {name:'SH128',specs:[['锁模力','1280牛'],['锁模行程','350mm'],['模具厚度','175-450mm'],['四柱内间距','410×360mm'],['顶出力','34KN'],['顶针行程','80mm'],['顶针杆数量','1']],tags:['按手按钮模具','底座模具','销售底座模具','调火环旋钮模具','小套体模具','充气底模具','按键模具','拨火环模具','灯外壳模具']},
+    {name:'SH168',specs:[['锁模力','1680牛'],['锁模行程','400mm'],['模具厚度','175-500mm'],['四柱内间距','460×400mm'],['顶出力','43KN'],['顶针行程','100mm'],['顶针杆数量','4+1']],tags:['机身外壳模具','底盖模具','机壳模具']}
   ],
-  large: [
-    {name:'海天 MA2500',specs:[['锁模力','250吨'],['螺杆直径','Φ50mm'],['最大射出量','490g(PS)'],['拉杆间距','570×570mm']],tags:['外壳模具','多腔外壳','大型外壳一体成型']},
-    {name:'震雄 JM328',specs:[['锁模力','328吨'],['螺杆直径','Φ60mm'],['最大射出量','780g(PS)'],['拉杆间距','660×660mm']],tags:['外壳模具','多件组合模具','大尺寸外壳']},
-    {name:'伊之密 UN320',specs:[['锁模力','320吨'],['螺杆直径','Φ60mm'],['最大射出量','760g(PS)'],['拉杆间距','660×660mm']],tags:['多腔外壳模具','大型组合模具','高产能注塑排布']}
+  other: [
+    {name:'SH128',specs:[['液压系统力','14Mpa'],['温控数量','3+1'],['伺服电机','16KW'],['电热','9.5KW'],['总功率','25.5KW'],['净重','4.2t'],['尺寸(长×宽×高)','4.25×0.95×1.8m'],['油箱容量','240L']],tags:['按手按钮模具','底座模具','销售底座模具','调火环旋钮模具','小套体模具','充气底模具','按键模具','拨火环模具','灯外壳模具']},
+    {name:'SH168',specs:[['液压系统力','14Mpa'],['温控数量','3+1'],['伺服电机','19.6KW'],['电热','11.8KW'],['总功率','31.4KW'],['净重','5t'],['尺寸(长×宽×高)','4.7×1.05×1.9m'],['油箱容量','340L']],tags:['机身外壳模具','底盖模具','机壳模具']}
   ]
 };
 
 function renderMachines() {
   const t = (k) => i18n[currentLang]?.[k] || i18n.en?.[k] || i18n.zh[k] || k;
-  ['small','medium','large'].forEach(size => {
+  ['injection','clamping','other'].forEach(size => {
     const el = document.getElementById('machineGrid' + size.charAt(0).toUpperCase() + size.slice(1));
     if (!el) return;
     el.innerHTML = machineData[size].map(m =>
       `<div class="machine-card">
         <h4>${dyn(m.name)}</h4>
         <div class="specs">${m.specs.map(s=>`<div class="spec-item"><span class="spec-label">${dyn(s[0])}</span><span class="sv">${dyn(s[1])}</span></div>`).join('')}</div>
-        <div class="compat"><h5>${t('mold_machine')}:</h5><div class="compat-tags">${m.tags.map(tg=>`<span class="compat-tag">${dyn(tg)}</span>`).join('')}</div></div>
+        <div class="compat"><h5>${t('machine_compatible_molds')}:</h5><div class="compat-tags">${m.tags.map(tg=>`<span class="compat-tag">${dyn(tg)}</span>`).join('')}</div></div>
+        <p class="machine-note">${t('machine_no_metal_molds')}</p>
       </div>`
     ).join('');
   });
@@ -8662,15 +8772,17 @@ function initFloatingWidget() {
 }
 
 // ==================== Machine Tabs ====================
-document.getElementById('machineTabs').addEventListener('click', (e) => {
-  if (e.target.classList.contains('tab-btn')) {
+const machineTabs = document.getElementById('machineTabs');
+if (machineTabs) {
+  machineTabs.addEventListener('click', (e) => {
+    if (!e.target.classList.contains('tab-btn')) return;
     const tab = e.target.dataset.tab;
     document.querySelectorAll('#machineTabs .tab-btn').forEach(b => b.classList.remove('active'));
     e.target.classList.add('active');
     document.querySelectorAll('#machines .tab-panel').forEach(p => p.classList.remove('active'));
-    document.getElementById('panel-' + tab).classList.add('active');
-  }
-});
+    document.getElementById('panel-' + tab)?.classList.add('active');
+  });
+}
 
 // ==================== Nav Highlight ====================
 const sections = Array.from(document.querySelectorAll('.section'));
