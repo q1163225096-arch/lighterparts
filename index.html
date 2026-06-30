@@ -6761,6 +6761,7 @@ body.single-view-mode #production .section-title p{
 #machines .machine-card .spec-item{
   display:grid!important;
   grid-template-rows:auto auto!important;
+  row-gap:4px!important;
   align-items:center!important;
   align-content:center!important;
   justify-items:center!important;
@@ -6812,7 +6813,8 @@ body.single-view-mode #production .section-title p{
   #machines .machine-card .spec-item{
     align-items:center!important;
     justify-content:center!important;
-    min-height:54px!important;
+    min-height:58px!important;
+    row-gap:3px!important;
     padding:5px 3px!important;
     text-align:center!important;
   }
@@ -6830,6 +6832,65 @@ body.single-view-mode #production .section-title p{
   #machines .machine-card .compat-tag{
     font-size:.66rem!important;
     padding:2px 4px!important;
+  }
+}
+
+/* Final mold spec cards: match machine spec typography */
+#molds .mold-specs{
+  gap:10px!important;
+}
+#molds .mold-spec-item{
+  display:grid!important;
+  grid-template-rows:auto auto!important;
+  row-gap:4px!important;
+  align-items:center!important;
+  align-content:center!important;
+  justify-items:center!important;
+  justify-content:center!important;
+  min-height:62px!important;
+  padding:8px 10px!important;
+  text-align:center!important;
+}
+#molds .mold-spec-label{
+  display:block!important;
+  width:100%!important;
+  font-size:.98rem!important;
+  line-height:1.15!important;
+  overflow-wrap:normal!important;
+  white-space:nowrap!important;
+  word-break:keep-all!important;
+  text-align:center!important;
+}
+#molds .mold-spec-value{
+  display:block!important;
+  width:100%!important;
+  margin-top:0!important;
+  font-size:1.14rem!important;
+  line-height:1.18!important;
+  overflow-wrap:normal!important;
+  white-space:nowrap!important;
+  word-break:keep-all!important;
+  text-align:center!important;
+}
+@media(max-width:720px){
+  #molds .mold-category-grid,
+  #molds .mold-grid > .mold-category-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+  #molds .mold-specs{
+    grid-template-columns:1fr!important;
+    gap:5px!important;
+  }
+  #molds .mold-spec-item{
+    min-height:58px!important;
+    row-gap:3px!important;
+    padding:5px 3px!important;
+  }
+  #molds .mold-spec-label{
+    font-size:.76rem!important;
+  }
+  #molds .mold-spec-value{
+    font-size:.84rem!important;
   }
 }
 
