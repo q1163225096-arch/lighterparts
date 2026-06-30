@@ -6746,32 +6746,35 @@ body.single-view-mode #production .section-title p{
   border-radius:8px!important;
 }
 #machines .machine-card h4{
+  display:block!important;
+  width:100%!important;
   min-height:auto!important;
   margin-bottom:14px!important;
   font-size:1.1rem!important;
   line-height:1.25!important;
+  text-align:center!important;
 }
 #machines .machine-card .specs{
   grid-template-columns:repeat(2,minmax(0,1fr))!important;
   gap:10px!important;
 }
 #machines .machine-card .spec-item{
+  align-items:center!important;
+  justify-content:center!important;
   padding:8px 10px!important;
+  text-align:center!important;
 }
 #machines .machine-card .spec-label{
   font-size:.74rem!important;
+  text-align:center!important;
 }
 #machines .machine-card .specs .sv{
   font-size:.84rem!important;
+  text-align:center!important;
 }
 #machines .machine-card .compat{
   margin-top:14px!important;
   padding-top:14px!important;
-}
-#machines .machine-note{
-  margin-top:10px;
-  color:#788391;
-  font-size:.72rem;
 }
 @media(max-width:720px){
   #machines .machine-grid{
@@ -6804,8 +6807,7 @@ body.single-view-mode #production .section-title p{
     font-size:.56rem!important;
     text-align:center!important;
   }
-  #machines .machine-card .compat h5,
-  #machines .machine-note{
+  #machines .machine-card .compat h5{
     font-size:.52rem!important;
   }
   #machines .machine-card .compat-tag{
@@ -7050,7 +7052,6 @@ const i18n = {
     col_feature:'材料特性要求',col_weight:'重量(g)',col_supplier:'建议供应商类型',col_ref_price:'参考价(CNY)',col_remark:'备注',
     mold_title:'塑料模具',mold_title2:'系统',mold_subtitle:'塑料部件的模具设计参数、模具钢材选用及型腔布局',
     machine_title:'注塑机',machine_title2:'适配矩阵',machine_subtitle:'SH128 与 SH168 注塑机参数及塑料模具适配范围',
-    machine_small:'小型注塑机',machine_medium:'中型注塑机',machine_large:'大型注塑机',
     machine_injection:'注射部分',machine_clamping:'锁模部分',machine_other:'其他部分',
     machine_compatible_molds:'适配塑料模具',machine_no_metal_molds:'不适配金属模具',
     more_lighters:'更多打火机',more_molds:'更多模具',
@@ -7092,7 +7093,6 @@ const i18n = {
     col_feature:'Material Requirements',col_weight:'Weight per Unit(g)',col_supplier:'Suggested Supplier',col_ref_price:'Reference Price(CNY)',col_remark:'Remark',
     mold_title:'Plastic Mold',mold_title2:'System',mold_subtitle:'Mold design parameters, steel selection and cavity layout for plastic parts',
     machine_title:'Injection Molding',machine_title2:'Machine Matrix',machine_subtitle:'SH128 and SH168 parameters with compatible plastic mold ranges',
-    machine_small:'Small Machines',machine_medium:'Medium Machines',machine_large:'Large Machines',
     machine_injection:'Injection Unit',machine_clamping:'Clamping Unit',machine_other:'Other Specs',
     machine_compatible_molds:'Compatible Plastic Molds',machine_no_metal_molds:'Metal molds are not supported',
     more_lighters:'More Lighters',more_molds:'More Molds',
@@ -7129,7 +7129,8 @@ const i18n = {
     col_feature:'材料要求',col_weight:'単重(g)',col_supplier:'推奨サプライヤー',
     mold_title:'プラスチック',mold_title2:'金型',mold_subtitle:'プラスチック部品の金型設計パラメータと鋼材選定',
     machine_title:'射出成形',machine_title2:'適合マトリックス',machine_subtitle:'金型と成形機の互換',
-    machine_small:'小型',machine_medium:'中型',machine_large:'大型',
+    machine_injection:'射出部',machine_clamping:'型締部',machine_other:'その他仕様',
+    machine_compatible_molds:'対応プラスチック金型',machine_no_metal_molds:'金属金型非対応',
     col_pid:'部品番号',col_spec:'仕様',col_moq:'最小ロット',col_unit_price:'単価(CNY)',col_bulk_price:'大量価格(CNY)',col_note:'備考',
     footer:'ライター部品技術プラットフォー© 2026',price_pending:'要問合せ',
     part_type:'種類',part_material:'材質',part_process:'工程',part_weight:'重量',part_moq:'最小ロット',
@@ -7151,7 +7152,8 @@ const i18n = {
     col_feature:'재료 요구사항',col_weight:'중량(g)',col_supplier:'추천 공급업체',
     mold_title:'플라스틱',mold_title2:'금형',mold_subtitle:'플라스틱 부품 금형 설계 파라미터 및 강재 선택',
     machine_title:'사출 성형',machine_title2:'적합 매트릭스',machine_subtitle:'금형과 사출기의 호환',
-    machine_small:'소형',machine_medium:'중형',machine_large:'대형',
+    machine_injection:'사출부',machine_clamping:'형체부',machine_other:'기타 사양',
+    machine_compatible_molds:'호환 플라스틱 금형',machine_no_metal_molds:'금속 금형 미지원',
     col_pid:'부품번호',col_spec:'사양',col_moq:'최소주문',col_unit_price:'단가(CNY)',col_bulk_price:'대량가(CNY)',col_note:'비고',
     footer:'라이터 부품 기술 플랫폼 © 2026',price_pending:'문의',
     part_type:'유형',part_material:'재질',part_process:'공정',part_weight:'중량',part_moq:'최소주문',
@@ -7172,7 +7174,8 @@ const i18n = {
     col_feature:'Requisitos',col_weight:'Peso(g)',col_supplier:'Proveedor',
     mold_title:'Sistema de',mold_title2:'Moldes',mold_subtitle:'Parámetros de diseño de moldes plásticos',
     machine_title:'Matriz de',machine_title2:'Máquinas',machine_subtitle:'Compatibilidad molde-máquina de inyección',
-    machine_small:'Pequeñas',machine_medium:'Medianas',machine_large:'Grandes',
+    machine_injection:'Unidad de inyección',machine_clamping:'Unidad de cierre',machine_other:'Otros datos',
+    machine_compatible_molds:'Moldes plásticos compatibles',machine_no_metal_molds:'No admite moldes metálicos',
     col_pid:'ID',col_spec:'Especificación',col_moq:'MOQ',col_unit_price:'Precio Unit.(CNY)',col_bulk_price:'10K+(CNY)',col_note:'Notas',
     footer:'Plataforma Técnica © 2026',price_pending:'Consultar',
     part_type:'Tipo',part_material:'Material',part_process:'Proceso',part_weight:'Peso',part_moq:'MOQ',
@@ -7193,7 +7196,8 @@ const i18n = {
     col_feature:'Requisitos',col_weight:'Peso(g)',col_supplier:'Fornecedor',
     mold_title:'Sistema de',mold_title2:'Moldes',mold_subtitle:'Parâmetros de projeto de moldes plásticos',
     machine_title:'Matriz de',machine_title2:'Máquinas',machine_subtitle:'Compatibilidade molde-máquina',
-    machine_small:'Pequenas',machine_medium:'Médias',machine_large:'Grandes',
+    machine_injection:'Unidade de injeção',machine_clamping:'Unidade de fechamento',machine_other:'Outras especificações',
+    machine_compatible_molds:'Moldes plásticos compatíveis',machine_no_metal_molds:'Não aceita moldes metálicos',
     col_pid:'ID',col_spec:'Especificação',col_moq:'MOQ',col_unit_price:'Preço Unit.(CNY)',col_bulk_price:'10K+(CNY)',col_note:'Notas',
     footer:'Plataforma Técnica © 2026',price_pending:'Consultar',
     part_type:'Tipo',part_material:'Material',part_process:'Processo',part_weight:'Peso',part_moq:'MOQ',
@@ -7214,7 +7218,8 @@ const i18n = {
     col_feature:'Exigences',col_weight:'Poids(g)',col_supplier:'Fournisseur',
     mold_title:'Système de',mold_title2:'Moules',mold_subtitle:'Paramètres de conception des moules plastiques',
     machine_title:'Matrice de',machine_title2:'Machines',machine_subtitle:'Compatibilité moule-machine',
-    machine_small:'Petites',machine_medium:'Moyennes',machine_large:'Grandes',
+    machine_injection:'Unité d\'injection',machine_clamping:'Unité de fermeture',machine_other:'Autres spécifications',
+    machine_compatible_molds:'Moules plastiques compatibles',machine_no_metal_molds:'Moules métalliques non compatibles',
     col_pid:'ID',col_spec:'Spécification',col_moq:'MOQ',col_unit_price:'Prix Unit.(CNY)',col_bulk_price:'10K+(CNY)',col_note:'Notes',
     footer:'Plateforme Technique © 2026',price_pending:'Consulter',nav_production:'Production',prod_title:'Production',prod_title2:'Flux de Processus',prod_subtitle:'Carte complète du processus de fabrication des matières premières aux produits finis',assembly_title:'Comparaison des Flux d\'Assemblage',assembly_subtitle:'Différences d\'assemblage interne entre les trois types',
     part_type:'Type',part_material:'Matériau',part_process:'Procédé',part_weight:'Poids',part_moq:'MOQ',
@@ -7234,7 +7239,8 @@ const i18n = {
     col_feature:'Anforderungen',col_weight:'Gewicht(g)',col_supplier:'Lieferant',
     mold_title:'Kunststoff',mold_title2:'Formsystem',mold_subtitle:'Formenkonstruktionsparameter',
     machine_title:'Spritzgieß',machine_title2:'Maschinenmatrix',machine_subtitle:'Form-Maschine-Kompatibilität',
-    machine_small:'Klein',machine_medium:'Mittel',machine_large:'Groß',
+    machine_injection:'Spritzeinheit',machine_clamping:'Schließeinheit',machine_other:'Weitere Daten',
+    machine_compatible_molds:'Kompatible Kunststoffformen',machine_no_metal_molds:'Metallformen nicht unterstützt',
     col_pid:'ID',col_spec:'Spezifikation',col_moq:'MOQ',col_unit_price:'Stückpreis(CNY)',col_bulk_price:'10K+(CNY)',col_note:'Anmerkung',
     footer:'Technische Plattform © 2026',price_pending:'Auf Anfrage',
     part_type:'Typ',part_material:'Material',part_process:'Verfahren',part_weight:'Gewicht',part_moq:'MOQ',
@@ -7254,7 +7260,8 @@ const i18n = {
     col_feature:'Требования',col_weight:'Вес(г)',col_supplier:'Поставщик',
     mold_title:'Система Пресс',mold_title2:'Форм',mold_subtitle:'Параметры конструкции пресс-форм',
     machine_title:'Матрица',machine_title2:'Совместимости',machine_subtitle:'Совместимость форм и машин',
-    machine_small:'Малые',machine_medium:'Средние',machine_large:'Крупные',
+    machine_injection:'Узел впрыска',machine_clamping:'Узел смыкания',machine_other:'Прочие параметры',
+    machine_compatible_molds:'Совместимые пластиковые формы',machine_no_metal_molds:'Металлические формы не поддерживаются',
     col_pid:'ID',col_spec:'Спецификация',col_moq:'MOQ',col_unit_price:'Цена(CNY)',col_bulk_price:'10K+(CNY)',col_note:'Прим.',
     footer:'Техническая Платформа © 2026',price_pending:'Уточнить',
     part_type:'Тип',part_material:'Материал',part_process:'Процесс',part_weight:'Вес',part_moq:'MOQ',
@@ -7274,7 +7281,8 @@ const i18n = {
     col_feature:'المتطلبات',col_weight:'الوزن(غ)',col_supplier:'المورد',
     mold_title:'نظام',mold_title2:'القوالب',mold_subtitle:'معايير تصميم القوالب البلاستيكية',
     machine_title:'مصفوفة',machine_title2:'الآلات',machine_subtitle:'توافق القالب مع الآلة',
-    machine_small:'صغيرة',machine_medium:'متوسطة',machine_large:'كبيرة',
+    machine_injection:'قسم الحقن',machine_clamping:'قسم الإغلاق',machine_other:'مواصفات أخرى',
+    machine_compatible_molds:'قوالب بلاستيكية متوافقة',machine_no_metal_molds:'لا يدعم القوالب المعدنية',
     col_pid:'الرقم',col_spec:'المواصفات',col_moq:'الحد الأدنى',col_unit_price:'سعر الوحدة(CNY)',col_bulk_price:'10K+(CNY)',col_note:'ملاحظات',
     footer:'المنصة التقنية © 2026',price_pending:'للاستفسار',
     part_type:'النوع',part_material:'المادة',part_process:'العملية',part_weight:'الوزن',part_moq:'الحد الأدنى',
@@ -8263,34 +8271,46 @@ function renderMolds() {
   grid.innerHTML = `<div class="mold-category-grid">${activeCategory.files.map(file => renderMoldCard(activeCategory, file)).join('')}</div>`;
 }
 
+const machineSections = [
+  {key:'injection', gridId:'machineGridInjection'},
+  {key:'clamping', gridId:'machineGridClamping'},
+  {key:'other', gridId:'machineGridOther'}
+];
+
+const machineMoldTags = {
+  SH128: ['按手按钮模具','底座模具','销售底座模具','调火环旋钮模具','小套体模具','充气底模具','按键模具','拨火环模具','灯外壳模具'],
+  SH168: ['机身外壳模具','底盖模具','机壳模具']
+};
+
 const machineData = {
   injection: [
-    {name:'SH128',specs:[['螺杆直径','50mm'],['注射压力','141Mpa'],['螺杆长径比','19:1'],['螺杆行程','172mm'],['注射容量','315cm³'],['理论注射量(PS)','11OZ'],['射台推力','54牛'],['螺杆速度','180转/分钟'],['射出行程','260mm']],tags:['按手按钮模具','底座模具','销售底座模具','调火环旋钮模具','小套体模具','充气底模具','按键模具','拨火环模具','灯外壳模具']},
-    {name:'SH168',specs:[['螺杆直径','55mm'],['注射压力','143Mpa'],['螺杆长径比','19:1'],['螺杆行程','186mm'],['注射容量','442cm³'],['理论注射量(PS)','14OZ'],['射台推力','60牛'],['螺杆速度','150转/分钟'],['射出行程','260mm']],tags:['机身外壳模具','底盖模具','机壳模具']}
+    {name:'SH128',specs:[['螺杆直径','50mm'],['注射压力','141Mpa'],['螺杆长径比','19:1'],['螺杆行程','172mm'],['注射容量','315cm³'],['理论注射量(PS)','11OZ'],['射台推力','54牛'],['螺杆速度','180转/分钟'],['射出行程','260mm']]},
+    {name:'SH168',specs:[['螺杆直径','55mm'],['注射压力','143Mpa'],['螺杆长径比','19:1'],['螺杆行程','186mm'],['注射容量','442cm³'],['理论注射量(PS)','14OZ'],['射台推力','60牛'],['螺杆速度','150转/分钟'],['射出行程','260mm']]}
   ],
   clamping: [
-    {name:'SH128',specs:[['锁模力','1280牛'],['锁模行程','350mm'],['模具厚度','175-450mm'],['四柱内间距','410×360mm'],['顶出力','34KN'],['顶针行程','80mm'],['顶针杆数量','1']],tags:['按手按钮模具','底座模具','销售底座模具','调火环旋钮模具','小套体模具','充气底模具','按键模具','拨火环模具','灯外壳模具']},
-    {name:'SH168',specs:[['锁模力','1680牛'],['锁模行程','400mm'],['模具厚度','175-500mm'],['四柱内间距','460×400mm'],['顶出力','43KN'],['顶针行程','100mm'],['顶针杆数量','4+1']],tags:['机身外壳模具','底盖模具','机壳模具']}
+    {name:'SH128',specs:[['锁模力','1280牛'],['锁模行程','350mm'],['模具厚度','175-450mm'],['四柱内间距','410×360mm'],['顶出力','34KN'],['顶针行程','80mm'],['顶针杆数量','1']]},
+    {name:'SH168',specs:[['锁模力','1680牛'],['锁模行程','400mm'],['模具厚度','175-500mm'],['四柱内间距','460×400mm'],['顶出力','43KN'],['顶针行程','100mm'],['顶针杆数量','4+1']]}
   ],
   other: [
-    {name:'SH128',specs:[['液压系统力','14Mpa'],['温控数量','3+1'],['伺服电机','16KW'],['电热','9.5KW'],['总功率','25.5KW'],['净重','4.2t'],['尺寸(长×宽×高)','4.25×0.95×1.8m'],['油箱容量','240L']],tags:['按手按钮模具','底座模具','销售底座模具','调火环旋钮模具','小套体模具','充气底模具','按键模具','拨火环模具','灯外壳模具']},
-    {name:'SH168',specs:[['液压系统力','14Mpa'],['温控数量','3+1'],['伺服电机','19.6KW'],['电热','11.8KW'],['总功率','31.4KW'],['净重','5t'],['尺寸(长×宽×高)','4.7×1.05×1.9m'],['油箱容量','340L']],tags:['机身外壳模具','底盖模具','机壳模具']}
+    {name:'SH128',specs:[['液压系统力','14Mpa'],['温控数量','3+1'],['伺服电机','16KW'],['电热','9.5KW'],['总功率','25.5KW'],['净重','4.2t'],['尺寸(长×宽×高)','4.25×0.95×1.8m'],['油箱容量','240L']]},
+    {name:'SH168',specs:[['液压系统力','14Mpa'],['温控数量','3+1'],['伺服电机','19.6KW'],['电热','11.8KW'],['总功率','31.4KW'],['净重','5t'],['尺寸(长×宽×高)','4.7×1.05×1.9m'],['油箱容量','340L']]}
   ]
 };
 
 function renderMachines() {
   const t = (k) => i18n[currentLang]?.[k] || i18n.en?.[k] || i18n.zh[k] || k;
-  ['injection','clamping','other'].forEach(size => {
-    const el = document.getElementById('machineGrid' + size.charAt(0).toUpperCase() + size.slice(1));
+  machineSections.forEach(section => {
+    const el = document.getElementById(section.gridId);
     if (!el) return;
-    el.innerHTML = machineData[size].map(m =>
-      `<div class="machine-card">
+    el.innerHTML = machineData[section.key].map(m => {
+      const specs = [...m.specs, [t('col_remark'), t('machine_no_metal_molds')]];
+      const tags = machineMoldTags[m.name] || [];
+      return `<div class="machine-card">
         <h4>${dyn(m.name)}</h4>
-        <div class="specs">${m.specs.map(s=>`<div class="spec-item"><span class="spec-label">${dyn(s[0])}</span><span class="sv">${dyn(s[1])}</span></div>`).join('')}</div>
-        <div class="compat"><h5>${t('machine_compatible_molds')}:</h5><div class="compat-tags">${m.tags.map(tg=>`<span class="compat-tag">${dyn(tg)}</span>`).join('')}</div></div>
-        <p class="machine-note">${t('machine_no_metal_molds')}</p>
-      </div>`
-    ).join('');
+        <div class="specs">${specs.map(s=>`<div class="spec-item"><span class="spec-label">${dyn(s[0])}</span><span class="sv">${dyn(s[1])}</span></div>`).join('')}</div>
+        <div class="compat"><h5>${t('machine_compatible_molds')}:</h5><div class="compat-tags">${tags.map(tg=>`<span class="compat-tag">${dyn(tg)}</span>`).join('')}</div></div>
+      </div>`;
+    }).join('');
   });
 }
 
