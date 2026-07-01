@@ -6605,6 +6605,52 @@ body.single-view-mode .section.active-section{
   body.single-view-mode #materialsTable.materials-transposed tr{
     height:16.6667%!important;
   }
+  body.single-view-mode #materials .more-lighters-link{
+    position:fixed!important;
+    top:clamp(88px,10.2vh,108px)!important;
+    right:clamp(36px,5.6vw,96px)!important;
+    z-index:20!important;
+    white-space:nowrap!important;
+  }
+  html:not([lang="zh-CN"]) body.single-view-mode .section-title h2,
+  html:not([lang="zh-CN"]) body.single-view-mode .section-title h2 span{
+    font-family:Arial,"Helvetica Neue",sans-serif!important;
+    letter-spacing:.03em!important;
+    word-spacing:.12em!important;
+  }
+  html:not([lang="zh-CN"]) body.single-view-mode #materials .section-title h2{
+    font-size:clamp(2rem,2.7vw,3.25rem)!important;
+    max-width:min(780px,calc(100vw - 520px))!important;
+    margin-inline:auto!important;
+    white-space:normal!important;
+  }
+  html:not([lang="zh-CN"]) body.single-view-mode .section-title h2 span + span::before{
+    content:" ";
+  }
+  html:not([lang="zh-CN"]) .header{
+    grid-template-columns:minmax(318px,.31fr) minmax(600px,1fr) minmax(112px,.18fr)!important;
+    gap:clamp(8px,1.2vw,20px)!important;
+  }
+  html:not([lang="zh-CN"]) .header nav{
+    flex-wrap:nowrap!important;
+    gap:clamp(8px,1.8vw,26px)!important;
+    justify-content:space-between!important;
+    overflow:hidden!important;
+  }
+  html:not([lang="zh-CN"]) .header nav a{
+    flex:0 1 auto!important;
+    font-size:.66rem!important;
+    letter-spacing:.13em!important;
+    white-space:nowrap!important;
+    min-width:max-content!important;
+  }
+  html:not([lang="zh-CN"]) .header .logo{
+    font-size:.7rem!important;
+    letter-spacing:.03em!important;
+    max-width:100%!important;
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
+  }
 }
 body.single-view-mode .section-title{
   margin-bottom:calc(clamp(22px,2.8vw,38px) - 10px)!important;
