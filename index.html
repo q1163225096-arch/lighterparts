@@ -6742,6 +6742,37 @@ body.single-view-mode .footer p{
   font-size:.82rem!important;
   line-height:18px!important;
 }
+body .footer,
+body.single-view-mode .footer{
+  --footer-text-fixed:#d9e7f7;
+  --footer-strong-fixed:#f6fbff;
+  --footer-link-fixed:#ff9f2f;
+  --footer-link-hover-fixed:#ffc26f;
+}
+body .footer,
+body .footer p,
+body .footer .friend-contact,
+body.single-view-mode .footer,
+body.single-view-mode .footer p,
+body.single-view-mode .footer .friend-contact{
+  color:var(--footer-text-fixed)!important;
+}
+body .footer .friend-links strong,
+body.single-view-mode .footer .friend-links strong{
+  color:var(--footer-strong-fixed)!important;
+}
+body .footer .friend-links a,
+body .footer .friend-contact a,
+body.single-view-mode .footer .friend-links a,
+body.single-view-mode .footer .friend-contact a{
+  color:var(--footer-link-fixed)!important;
+}
+body .footer .friend-links a:hover,
+body .footer .friend-contact a:hover,
+body.single-view-mode .footer .friend-links a:hover,
+body.single-view-mode .footer .friend-contact a:hover{
+  color:var(--footer-link-hover-fixed)!important;
+}
 @media(max-width:820px){
   html,
   body.single-view-mode{
