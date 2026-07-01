@@ -4949,6 +4949,54 @@ footer{
 #materialsTable th:nth-child(6),
 #materialsTable td:nth-child(6){width:16.666%!important}
 
+/* Raw materials transposed table: images across the top row */
+#materialsTable.materials-transposed{
+  --material-label-col-width:116px;
+  --material-data-col-width:calc((100% - var(--material-label-col-width)) / var(--material-item-count));
+  width:100%!important;
+  min-width:100%!important;
+  table-layout:fixed!important;
+  border-collapse:collapse!important;
+  border:1px solid rgba(255,255,255,.14)!important;
+}
+#materialsTable.materials-transposed th,
+#materialsTable.materials-transposed td{
+  width:var(--material-data-col-width)!important;
+  min-width:0!important;
+  max-width:none!important;
+  padding:12px 4px!important;
+  border:1px solid rgba(255,255,255,.14)!important;
+  text-align:center!important;
+  vertical-align:middle!important;
+  white-space:nowrap!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+}
+#materialsTable.materials-transposed .materials-row-label{
+  position:sticky!important;
+  left:0!important;
+  z-index:2!important;
+  width:var(--material-label-col-width)!important;
+  min-width:var(--material-label-col-width)!important;
+  max-width:var(--material-label-col-width)!important;
+  color:#ff9f2f!important;
+  font-weight:700!important;
+  background:#17120d!important;
+}
+#materialsTable.materials-transposed .materials-image-row td{
+  height:82px!important;
+}
+#materialsTable.materials-transposed .material-part-photo{
+  width:clamp(42px,3.4vw,60px)!important;
+  height:clamp(42px,3.4vw,60px)!important;
+  margin:0 auto!important;
+  border:1px solid rgba(255,255,255,.16)!important;
+}
+#materialsTable.materials-transposed .material-part-photo img{
+  max-width:calc(100% - 4px)!important;
+  max-height:calc(100% - 4px)!important;
+}
+
 /* Final nav click layer: keep every header nav item reachable */
 .header nav{
   pointer-events:auto!important;
@@ -6530,6 +6578,32 @@ body.single-view-mode .section.active-section{
     width:0!important;
     height:0!important;
     display:none!important;
+  }
+  body.single-view-mode #materials.active-section{
+    display:flex!important;
+    flex-direction:column!important;
+    padding-bottom:14px!important;
+    overflow:hidden!important;
+  }
+  body.single-view-mode #materials .section-title,
+  body.single-view-mode #materials .materials-filter{
+    flex:0 0 auto!important;
+  }
+  body.single-view-mode #materials .table-wrapper{
+    flex:1 1 auto!important;
+    display:flex!important;
+    align-items:stretch!important;
+    min-height:0!important;
+    overflow:hidden!important;
+  }
+  body.single-view-mode #materialsTable.materials-transposed{
+    height:100%!important;
+  }
+  body.single-view-mode #materialsTable.materials-transposed tbody{
+    height:100%!important;
+  }
+  body.single-view-mode #materialsTable.materials-transposed tr{
+    height:16.6667%!important;
   }
 }
 body.single-view-mode .section-title{
@@ -8242,6 +8316,7 @@ function selectPart(key) {
 
 // ==================== Dynamic Tables / 动态内容渲染 ====================
 function renderMaterials() {
+  const t = (k) => i18n[currentLang]?.[k] || i18n.en?.[k] || i18n.zh[k] || k;
   const filter = document.getElementById('materialsFilter');
   const groups = [
     {key:'electronic', label:'电子打火机', parts:lighterParts.electronic || []},
@@ -8259,22 +8334,59 @@ function renderMaterials() {
   const active = groups.find(g => g.key === currentMaterialGroup) || groups[0];
   const rows = active.parts.map(key => {
     const materialRow = getMaterialRowData(key);
-    return [
+    return {
       key,
-      dyn(getPartName(key)),
-      dyn(materialRow.weight),
-      dyn(materialRow.moq),
-      dyn(materialRow.refPrice),
-      dyn(materialRow.remark)
-    ];
+      name: dyn(getPartName(key)),
+      weight: dyn(materialRow.weight),
+      moq: dyn(materialRow.moq),
+      refPrice: dyn(materialRow.refPrice),
+      remark: dyn(materialRow.remark)
+    };
   });
-  const body = document.getElementById('materialsBody');
-  if (!body) return;
-  body.innerHTML = rows.map(r =>
-    `<tr>${r.map((c,i)=> i === 0
-      ? `<td><div class="material-part-photo"><img src="${getPartImage(c)}" alt="${getPartName(c)}" title="${getPartName(c)}" loading="lazy" onerror="this.parentElement.classList.add('image-missing')"></div></td>`
-      : `<td>${dyn(c)}</td>`).join('')}</tr>`
-  ).join('');
+  const table = document.getElementById('materialsTable');
+  if (!table) return;
+  const isDesktopMaterials = window.innerWidth > 720;
+  if (!isDesktopMaterials) {
+    table.classList.remove('materials-transposed');
+    table.style.removeProperty('--material-item-count');
+    table.style.removeProperty('--material-table-width');
+    table.innerHTML = `<thead><tr>
+      <th data-i18n="col_part">${t('col_part')}</th>
+      <th data-i18n="col_material_name">${t('col_material_name')}</th>
+      <th data-i18n="col_weight">${t('col_weight')}</th>
+      <th data-i18n="col_moq">${t('col_moq')}</th>
+      <th data-i18n="col_ref_price">${t('col_ref_price')}</th>
+      <th data-i18n="col_remark">${t('col_remark')}</th>
+    </tr></thead><tbody>${rows.map(r =>
+      `<tr>
+        <td><div class="material-part-photo"><img src="${getPartImage(r.key)}" alt="${getPartName(r.key)}" title="${getPartName(r.key)}" loading="lazy" onerror="this.parentElement.classList.add('image-missing')"></div></td>
+        <td>${r.name}</td>
+        <td>${r.weight}</td>
+        <td>${r.moq}</td>
+        <td>${r.refPrice}</td>
+        <td>${r.remark}</td>
+      </tr>`
+    ).join('')}</tbody>`;
+    return;
+  }
+  table.classList.add('materials-transposed');
+  table.style.setProperty('--material-item-count', rows.length || 1);
+  table.style.setProperty('--material-table-width', `${(rows.length + 1) * 116}px`);
+  const fieldRows = [
+    {
+      label: t('col_part'),
+      className: 'materials-image-row',
+      cells: rows.map(r => `<div class="material-part-photo"><img src="${getPartImage(r.key)}" alt="${getPartName(r.key)}" title="${getPartName(r.key)}" loading="lazy" onerror="this.parentElement.classList.add('image-missing')"></div>`)
+    },
+    {label: t('col_material_name'), cells: rows.map(r => r.name)},
+    {label: t('col_weight'), cells: rows.map(r => r.weight)},
+    {label: t('col_moq'), cells: rows.map(r => r.moq)},
+    {label: t('col_ref_price'), cells: rows.map(r => r.refPrice)},
+    {label: t('col_remark'), cells: rows.map(r => r.remark)}
+  ];
+  table.innerHTML = `<tbody>${fieldRows.map(row =>
+    `<tr class="${row.className || ''}"><th scope="row" class="materials-row-label">${row.label}</th>${row.cells.map(cell => `<td>${cell}</td>`).join('')}</tr>`
+  ).join('')}</tbody>`;
 }
 
 function renderMolds() {
@@ -8968,6 +9080,28 @@ window.scrollToSection = (hash, link) => {
   const activeHash = setActiveNav(hash);
   if (location.hash !== activeHash) history.pushState(null, '', activeHash);
 };
+
+function isMaterialsDesktopMode() {
+  return window.innerWidth > 720;
+}
+
+let lastMaterialsDesktopMode = isMaterialsDesktopMode();
+function syncMaterialsResponsiveLayout() {
+  const table = document.getElementById('materialsTable');
+  const nextMaterialsDesktopMode = isMaterialsDesktopMode();
+  if (!table) return;
+  if (nextMaterialsDesktopMode === lastMaterialsDesktopMode && table.classList.contains('materials-transposed') === nextMaterialsDesktopMode) return;
+  lastMaterialsDesktopMode = nextMaterialsDesktopMode;
+  renderMaterials();
+}
+
+window.addEventListener('resize', () => {
+  window.clearTimeout(renderMaterials.resizeTimer);
+  renderMaterials.resizeTimer = window.setTimeout(() => {
+    syncMaterialsResponsiveLayout();
+  }, 120);
+}, {passive:true});
+window.addEventListener('load', () => window.setTimeout(syncMaterialsResponsiveLayout, 80), {once:true});
 
 // ==================== Init ====================
 switchLighter('flint');
