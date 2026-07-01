@@ -6521,6 +6521,17 @@ body.single-view-mode .section{
 body.single-view-mode .section.active-section{
   display:block!important;
 }
+@media(min-width:721px){
+  body.single-view-mode .section{
+    scrollbar-width:none!important;
+    -ms-overflow-style:none!important;
+  }
+  body.single-view-mode .section::-webkit-scrollbar{
+    width:0!important;
+    height:0!important;
+    display:none!important;
+  }
+}
 body.single-view-mode .section-title{
   margin-bottom:calc(clamp(22px,2.8vw,38px) - 10px)!important;
 }
