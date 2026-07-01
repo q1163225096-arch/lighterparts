@@ -1,3 +1,26 @@
+.header .logo{
+  display:inline-flex!important;
+  align-items:center!important;
+  min-height:38px!important;
+  max-width:min(48vw,420px)!important;
+  overflow:hidden!important;
+  color:#fff!important;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif!important;
+  font-size:1.18rem!important;
+  font-style:normal!important;
+  font-weight:800!important;
+  letter-spacing:0!important;
+  line-height:1!important;
+  text-decoration:none!important;
+  text-overflow:ellipsis!important;
+  white-space:nowrap!important;
+  transform:none!important;
+}
+.header .logo::before,
+.header .logo::after{
+  display:none!important;
+  content:none!important;
+}
 .header-actions{
   display:flex;
   align-items:center;
