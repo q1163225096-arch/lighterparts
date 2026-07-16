@@ -7716,9 +7716,22 @@ const dynamicText = {
   ar: {'电子打火机':'ولاعة إلكترونية','灯机':'ولاعة بمصباح','防风打火机':'ولاعة مقاومة للرياح','砂轮打火机':'ولاعة بعجلة حجر','砂轮成品头':'رأس عجلة جاهز','私聊':'تواصل معنا','看样品':'عرض عينة','模具':'قالب','注塑':'حقن','焊接':'لحام','充气':'تعبئة غاز','调火':'ضبط اللهب','检验':'فحص','吨':' طن'}
 };
 
+function normalizeCustomLabel(text) {
+  if (text === null || text === undefined) return text;
+  const value = String(text).trim();
+  const customLabels = new Set([
+    '按产品定制',
+    '按产品排样定制',
+    '按产品结构定制',
+    '浇口、顶出、冷却水路按产品定制'
+  ]);
+  return customLabels.has(value) ? '定制' : text;
+}
+
 function dyn(text) {
-  if (currentLang === 'zh' || text === null || text === undefined) return text;
-  const value = String(text);
+  const normalizedText = normalizeCustomLabel(text);
+  if (currentLang === 'zh' || normalizedText === null || normalizedText === undefined) return normalizedText;
+  const value = String(normalizedText);
   const dict = dynamicText[currentLang] || dynamicText.en;
   const fallback = dynamicText.en;
   if (dict[value]) return dict[value];

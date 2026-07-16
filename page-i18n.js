@@ -68,6 +68,14 @@
     other_products: 'Other Products',
     lamp_lighter: 'Lamp Lighter',
     flint_head: 'Flint Finished Head',
+    metal_lighter: 'Metal Shell Lighter',
+    jet_lighter: 'Jet Lighter',
+    led_lighter: 'LED Lighter',
+    cr_lighter: 'CR Lighter',
+    bbq_lighter: 'BBQ Torch Lighter',
+    philippine_lighter: 'Philippine Lighter',
+    spanish_lighter: 'Spanish Lighter',
+    model_pending: 'Model pending',
     molds: 'Molds',
     lighter_parts: 'Lighter Parts',
     exploded_alt_suffix: ' exploded detail image'
@@ -118,6 +126,14 @@
       other_products: '其他产品',
       lamp_lighter: '灯机',
       flint_head: '砂轮成品头',
+      metal_lighter: '金属外壳打火机',
+      jet_lighter: '喷枪打火机',
+      led_lighter: 'LED打火机',
+      cr_lighter: 'CR打火机',
+      bbq_lighter: '烧烤点火枪',
+      philippine_lighter: '菲律宾打火机',
+      spanish_lighter: '西班牙打火机',
+      model_pending: '待补型号',
       molds: '模具',
       lighter_parts: '打火机散件',
       exploded_alt_suffix: '拆解详情图'
@@ -409,6 +425,14 @@
     '其他产品': 'other_products',
     '灯机': 'lamp_lighter',
     '砂轮成品头': 'flint_head',
+    '金属外壳打火机': 'metal_lighter',
+    '喷枪打火机': 'jet_lighter',
+    'LED打火机': 'led_lighter',
+    'CR打火机': 'cr_lighter',
+    '烧烤点火枪': 'bbq_lighter',
+    '菲律宾打火机': 'philippine_lighter',
+    '西班牙打火机': 'spanish_lighter',
+    '待补型号': 'model_pending',
     '打火机散件': 'lighter_parts',
     '打火机': 'lighter',
     '模具': 'molds',
@@ -457,12 +481,47 @@
   }
 
   function normalizeLang(raw) {
-    const code = String(raw || '').toLowerCase().split('-')[0];
+    const value = String(raw || '').trim().toLowerCase();
+    const aliasMap = {
+      'zh-cn': 'zh',
+      'zh-sg': 'zh',
+      'zh-hans': 'zh',
+      'zh-hant': 'zh',
+      'zh-tw': 'zh',
+      'pt-br': 'pt',
+      'pt-pt': 'pt',
+      'iw': 'he',
+      'in': 'id'
+    };
+    const twoPart = value.split('-').slice(0, 2).join('-');
+    const code = aliasMap[value] || aliasMap[twoPart] || value.split('-')[0];
     return langList.some(lang => lang.code === code) ? code : 'zh';
   }
 
+  function detectPreferredLang() {
+    const candidates = [
+      ...(Array.isArray(navigator.languages) ? navigator.languages : []),
+      navigator.language,
+      navigator.userLanguage
+    ];
+    for (const lang of candidates) {
+      const code = normalizeLang(lang);
+      if (langList.some(item => item.code === code)) return code;
+    }
+    return 'zh';
+  }
+
   function getStoredLang() {
-    return normalizeLang(localStorage.getItem('lighter_lang') || navigator.language || 'zh');
+    let saved = '';
+    let hasManualChoice = false;
+    try {
+      saved = localStorage.getItem('lighter_lang') || '';
+      hasManualChoice = localStorage.getItem('lighter_lang_manual') === '1';
+    } catch (error) {
+      saved = '';
+    }
+    if (hasManualChoice && langList.some(lang => lang.code === saved)) return saved;
+    return detectPreferredLang();
   }
 
   function renderLangDropdown() {
@@ -528,8 +587,10 @@
 
   function setPageLang(code) {
     currentLang = normalizeLang(code);
-    localStorage.setItem('lighter_lang', currentLang);
-    localStorage.setItem('lighter_lang_manual', '1');
+    try {
+      localStorage.setItem('lighter_lang', currentLang);
+      localStorage.setItem('lighter_lang_manual', '1');
+    } catch (error) {}
     applyPageI18n();
   }
 

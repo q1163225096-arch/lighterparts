@@ -275,12 +275,21 @@ body{
   .detail-image{border-radius:6px}
 }
 </style>
-<link rel="stylesheet" href="page-i18n.css?v=unified-logo">
+<link rel="stylesheet" href="page-i18n.css?v=detail-lang-sync">
 </head>
 <body>
 <header class="header">
   <a class="logo" href="index.html#exploded" data-i18n="exploded_detail_title">打火机部件拆解图</a>
-  <button class="back" data-i18n="back_exploded" onclick="window.location.href='index.html#exploded'">返回部件拆解</button>
+  <div class="header-actions">
+    <button class="back" data-i18n="back_exploded" onclick="window.location.href='index.html#exploded'">返回部件拆解</button>
+    <div class="lang-select">
+      <button class="lang-btn" id="langBtn" type="button" aria-haspopup="listbox" aria-expanded="false">
+        <span class="globe" aria-hidden="true">🌐</span>
+        <span id="currentLangLabel">中文</span>
+      </button>
+      <div class="lang-dropdown" id="langDropdown" role="listbox"></div>
+    </div>
+  </div>
 </header>
 
 <main class="page">
@@ -297,7 +306,7 @@ body{
   <div class="details-list" id="detailsList"></div>
 </main>
 
-<script src="page-i18n.js"></script>
+<script src="page-i18n.js?v=detail-lang-sync"></script>
 <script>
 const imageVersion = '20260615-user-0904';
 const detailImageRoot = 'images/01-部件拆解/更多拆解图-替换区';

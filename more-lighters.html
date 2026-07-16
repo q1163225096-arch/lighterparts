@@ -512,12 +512,21 @@ body.image-viewer-open{
   }
 }
 </style>
-<link rel="stylesheet" href="page-i18n.css?v=unified-logo">
+<link rel="stylesheet" href="page-i18n.css?v=detail-lang-sync">
 </head>
 <body>
 <header class="header">
   <a class="logo" href="index.html" data-i18n="brand">打火机散件及自动化设备</a>
-  <button class="back" data-i18n="back_materials" onclick="window.location.href='index.html#materials'">返回原材料供应</button>
+  <div class="header-actions">
+    <button class="back" data-i18n="back_materials" onclick="window.location.href='index.html#materials'">返回原材料供应</button>
+    <div class="lang-select">
+      <button class="lang-btn" id="langBtn" type="button" aria-haspopup="listbox" aria-expanded="false">
+        <span class="globe" aria-hidden="true">🌐</span>
+        <span id="currentLangLabel">中文</span>
+      </button>
+      <div class="lang-dropdown" id="langDropdown" role="listbox"></div>
+    </div>
+  </div>
 </header>
 
 <main class="page">
@@ -563,7 +572,7 @@ body.image-viewer-open{
   </div>
 </div>
 
-<script src="page-i18n.js"></script>
+<script src="page-i18n.js?v=detail-lang-sync"></script>
 <script src="factory1-catalog.js"></script>
 <script src="factory2-catalog.js"></script>
 <script>
@@ -832,7 +841,8 @@ function render(){
     : (window.pageT ? pageT('empty_category') : '该栏目暂无产品图片');
   productGrid.innerHTML=filteredItems.length
     ? pageItems.map(item=>{
-      const title=escapeHtml(displayTitle(item.model || item.title));
+      const rawTitle=displayTitle(item.model || item.title);
+      const title=escapeHtml(window.translatePageText ? translatePageText(rawTitle) : rawTitle);
       const img=escapeHtml(imageSrc(item.img));
       return `<article class="card"><img src="${img}" alt="${title}" loading="lazy" decoding="async"><h2>${title}</h2></article>`;
     }).join('')
