@@ -7092,6 +7092,14 @@ body.single-view-mode #production .section-title p{
   }
 }
 
+  /* __PROC_YOUTUBE_CSS__ */
+  #production .process-card.has-link{position:relative;cursor:pointer}
+  #production .process-card.has-link .process-image:after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.18);opacity:0;transition:opacity .2s;z-index:2}
+  #production .process-card.has-link:hover .process-image:after{opacity:1}
+  #production .process-play{position:absolute;right:10px;bottom:10px;width:38px;height:38px;border-radius:50%;background:rgba(229,57,53,.92);box-shadow:0 2px 8px rgba(0,0,0,.35);z-index:3}
+  #production .process-play:before{content:"";display:block;width:0;height:0;border-left:13px solid #fff;border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:3px}
+  #production .process-jump{position:absolute;inset:0;z-index:4}
+  /* __PROC_YOUTUBE_CSS_END__ */
 </style>
 </head>
 <body class="single-view-mode">
@@ -8660,13 +8668,29 @@ function renderProcessFlow() {
     {num:9,title:'分色贴标',img:'images/05-生产工艺/09五色机.png',note:'按颜色或规格进行分拣排列，便于后续包装出货',equipment:'分色贴标机'},
     {num:10,title:'打包发货',img:'images/08-工厂二/07-CR打火机/02-E188.jpg',note:'贴标/包纸完成后装箱，进入发货出库流程',equipment:'贴标包纸机'}
   ];
+  /* __PROC_YOUTUBE_MAP__ */
+  const stepYoutube = {
+    'images/05-生产工艺/01注塑.png': 'https://youtu.be/AIu0StJs0cE?si=SG7ui4g3TSNbn6Nc',
+    'images/05-生产工艺/02插盘机.png': 'https://youtu.be/4Cw1mkotakY?si=w5TSe-g0MUhZ8-OH',
+    'images/05-生产工艺/03焊接機.png': 'https://youtu.be/AIuCofHa1zE?si=4DELw-ZHWLyHhmln',
+    'images/05-生产工艺/04面阀.png': 'https://youtu.be/lKYCOWkxPbg?si=oyC6LUdICO9YLZtJ',
+    'images/05-生产工艺/05充气机.png': 'https://youtu.be/KA7EtjdZBs4?si=LoueA5Szn-rlVM0O',
+    'images/05-生产工艺/06调火机.png': 'https://youtu.be/abKpqKQ_Ofc?si=o2vFotfv493oGHOl',
+    'images/05-生产工艺/07压机板.png': 'https://youtu.be/_2ubgI-Z2as?si=M1lkddJ-fphMgBif',
+    'images/05-生产工艺/08检验机.png': 'https://youtu.be/U6Mstfr7_Uo?si=Jj0IpPjTm6J5oVUI',
+    'images/05-生产工艺/09五色机.png': 'https://youtu.be/M3_XYfCCSH4?si=JPOxWSDZXL2XpS12',
+    'images/08-工厂二/07-CR打火机/02-E188.jpg': 'https://youtu.be/iRIMJ1ZSxQA?si=7fMEPXaSTih7T4tG',
+  };
+  /* __PROC_YOUTUBE_MAP_END__ */
   const card = (step) => {
     const title = dyn(step.title);
     const note = dyn(step.note);
     const equipment = dyn(step.equipment);
+    const yt = (typeof stepYoutube !== 'undefined' && stepYoutube[step.img]) || '';
     return `
-    <article class="process-card step-${step.num}${step.featured ? ' is-featured' : ''}">
-      <div class="process-image"><img src="${versionedImage(step.img)}" alt="${title}" loading="lazy" onerror="this.parentElement.classList.add('image-missing')"></div>
+    <article class="process-card step-${step.num}${step.featured ? ' is-featured' : ''}${yt ? ' has-link' : ''}" data-img="${step.img}">
+      ${yt ? `<a class="process-jump" href="${yt}" target="_blank" rel="noopener" title="点击观看视频"></a>` : ''}
+      <div class="process-image"><img src="${versionedImage(step.img)}" alt="${title}" loading="lazy" onerror="this.parentElement.classList.add('image-missing')">${yt ? '<span class="process-play" aria-hidden="true"></span>' : ''}</div>
       <div class="process-body">
         <div class="process-heading">
           <span class="process-number"><span class="process-number-text">${step.num}</span></span>
