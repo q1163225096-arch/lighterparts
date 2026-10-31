@@ -7096,8 +7096,6 @@ body.single-view-mode #production .section-title p{
   #production .process-card.has-link{position:relative;cursor:pointer}
   #production .process-card.has-link .process-image:after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.18);opacity:0;transition:opacity .2s;z-index:2}
   #production .process-card.has-link:hover .process-image:after{opacity:1}
-  #production .process-play{position:absolute;right:10px;bottom:10px;width:38px;height:38px;border-radius:50%;background:rgba(229,57,53,.92);box-shadow:0 2px 8px rgba(0,0,0,.35);z-index:3}
-  #production .process-play:before{content:"";display:block;width:0;height:0;border-left:13px solid #fff;border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:3px}
   #production .process-jump{position:absolute;inset:0;z-index:4}
   /* __PROC_YOUTUBE_CSS_END__ */
 </style>
@@ -8690,7 +8688,7 @@ function renderProcessFlow() {
     return `
     <article class="process-card step-${step.num}${step.featured ? ' is-featured' : ''}${yt ? ' has-link' : ''}" data-img="${step.img}">
       ${yt ? `<a class="process-jump" href="${yt}" target="_blank" rel="noopener" title="点击观看视频"></a>` : ''}
-      <div class="process-image"><img src="${versionedImage(step.img)}" alt="${title}" loading="lazy" onerror="this.parentElement.classList.add('image-missing')">${yt ? '<span class="process-play" aria-hidden="true"></span>' : ''}</div>
+      <div class="process-image"><img src="${versionedImage(step.img)}" alt="${title}" loading="lazy" onerror="this.parentElement.classList.add('image-missing')"></div>
       <div class="process-body">
         <div class="process-heading">
           <span class="process-number"><span class="process-number-text">${step.num}</span></span>
