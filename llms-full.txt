@@ -1,0 +1,122 @@
+# Lighter Parts & Automation Equipment — Full Reference
+
+This document is the expanded, AI-readable reference for the lighter-parts technical platform and supply business hosted at https://q1163225096-arch.github.io/lighterparts/. It is written in English for international discovery. The Chinese version is available at llms-zh.txt.
+
+Supplier location: China. Direct contact: WhatsApp/WeChat 15675907557, Email 1163225096@qq.com.
+
+---
+
+## 1. What the site covers
+
+The platform documents and supplies lighter components, the plastic molds used to make them, and the automated equipment used in production. Content is organized into five technical areas plus a contact/inquiry page:
+
+1. Component exploded diagrams
+2. Raw material supply data
+3. Mold systems (plastic injection molds)
+4. Injection-machine compatibility matrix
+5. Production process workflow
+6. Contact & quote request
+
+---
+
+## 2. Lighter product categories
+
+- **Electronic lighters** — piezoelectric ignition; components include electronic module, spark unit, valve, housing, etc.
+- **Flint-wheel (strike) lighters** — friction-wheel and flint ignition; classic mechanical construction.
+- **Windproof lighters** — shielded catalytic-style flame; reinforced airflow components.
+- **Flint-head lighters** — dedicated flint-head ignition assemblies.
+- **Lamp / kerosene lighters** — wick-and-fuel (lamp) style constructions.
+
+For each category the site provides exploded diagrams with labeled part callouts and, where applicable, catalog photographs of finished styles and variants.
+
+---
+
+## 3. Exploded component diagrams
+
+The exploded-diagrams page presents layered, labeled views for:
+
+- Electronic lighter
+- Flint-wheel lighter
+- Windproof lighter
+- Flint-head lighter
+- Lamp lighter
+
+Each diagram separates the assembly into its constituent parts so buyers and engineers can identify individual components, materials, and mating relationships.
+
+---
+
+## 4. Raw materials
+
+The raw-material data lists lighter components with, for each item:
+
+- Component / material name
+- Unit weight
+- Minimum order quantity (MOQ)
+- Reference price
+- Remarks / notes
+
+This supports component sourcing and quotation for both replacement parts and bulk supply.
+
+---
+
+## 5. Mold systems (plastic injection molds)
+
+The mold gallery shows plastic injection molds organized by lighter type:
+
+- Electronic lighter molds
+- Windproof lighter molds
+- Flint-wheel lighter molds
+- Lamp lighter molds
+
+Mold photographs document cavity design, parting lines, and the families of parts each mold produces. Mold development for custom components is offered on request.
+
+---
+
+## 6. Injection-machine compatibility matrix
+
+A matching matrix correlates lighter components and molds with compatible injection-machine specifications, helping buyers select appropriate equipment for their production volume and part geometry.
+
+---
+
+## 7. Production process workflow
+
+The manufacturing workflow documented on the site includes the following stages:
+
+1. **Injection** — molding plastic components.
+2. **Tray loading** — arranging molded parts for downstream handling.
+3. **Welding** — joining metal/plastic sub-assemblies.
+4. **Face-valve** — installing and sealing the gas valve face.
+5. **Gas filling** — butane / fuel filling.
+6. **Flame adjustment** — setting and tuning the flame.
+7. **Press-plate** — final pressing / assembly consolidation.
+8. **Inspection** — quality checking.
+9. **Color-sorting & labeling** — sorting by color and applying labels.
+
+Process photographs illustrate both the line overview and detailed station close-ups.
+
+---
+
+## 8. Automation production equipment
+
+The site references automated production equipment for lighter manufacturing, complementing the component and mold supply. Equipment inquiries are handled through the contact page.
+
+---
+
+## 9. Contact & getting a quote
+
+- WhatsApp / WeChat: 15675907557
+- Email: 1163225096@qq.com
+- Location: China
+
+Request types handled: component quotes, mold development, and automated production-equipment sourcing. Use the inquiry form on the Contact page or reach out directly via the channels above.
+
+---
+
+## 10. Page index (English)
+
+- Home: https://q1163225096-arch.github.io/lighterparts/en-index.html
+- Exploded diagrams: https://q1163225096-arch.github.io/lighterparts/en-exploded-details.html
+- Catalog: https://q1163225096-arch.github.io/lighterparts/en-more-lighters.html
+- Molds: https://q1163225096-arch.github.io/lighterparts/en-more-molds.html
+- Production: https://q1163225096-arch.github.io/lighterparts/en-production-details.html
+- Contact: https://q1163225096-arch.github.io/lighterparts/en-contact.html

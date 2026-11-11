@@ -1,23 +1,30 @@
-# 打火机散件及自动化设备
+# Lighter Parts & Automation Equipment
 
-站点：https://q1163225096-arch.github.io/lighterparts/
-最后更新：2026-06-28
+> Technical platform and supplier for lighter components, plastic mold systems, and automated production equipment. We publish exploded component diagrams, raw-material supply data, mold galleries, injection-machine matching matrices, and step-by-step production-process documentation for electronic, flint-wheel, windproof, flint-head, and lamp lighters. Supplier based in China.
 
-这是一个打火机零部件销售与技术资料平台，主要内容包括：
+## English pages (primary)
 
-- 打火机部件拆解图：https://q1163225096-arch.github.io/lighterparts/exploded-details.html
-- 更多打火机款式：https://q1163225096-arch.github.io/lighterparts/more-lighters.html
-- 打火机散件模具：https://q1163225096-arch.github.io/lighterparts/more-molds.html
-- 打火机生产制作工艺：https://q1163225096-arch.github.io/lighterparts/production-details.html
+- [Home / Index](https://q1163225096-arch.github.io/lighterparts/en-index.html): Component diagrams, raw materials, mold systems, injection-machine matrix, and production-process overview.
+- [Exploded Component Diagrams](https://q1163225096-arch.github.io/lighterparts/en-exploded-details.html): Electronic, flint-wheel, windproof, flint-head, and lamp lighter exploded views with part callouts.
+- [Lighter Catalog](https://q1163225096-arch.github.io/lighterparts/en-more-lighters.html): Full product catalog images of lighter styles and variants.
+- [Mold Systems](https://q1163225096-arch.github.io/lighterparts/en-more-molds.html): Plastic mold galleries by type — electronic, windproof, flint-wheel, and lamp lighter molds.
+- [Production Process](https://q1163225096-arch.github.io/lighterparts/en-production-details.html): Manufacturing workflow — injection, tray loading, welding, face-valve, gas filling, flame adjustment, press-plate, inspection, color-sorting and labeling.
+- [Contact & Get a Quote](https://q1163225096-arch.github.io/lighterparts/en-contact.html): Request component quotes, mold development, and automated production equipment. WhatsApp/WeChat: 15675907557 · Email: 1163225096@qq.com.
 
-主要主题：
+## Products & topics
 
-- 电子打火机、砂轮打火机、防风打火机、砂轮成品头、灯机的部件拆解与图片资料。
-- 打火机零部件材料名称、重量、起订量、参考价和备注信息。
-- 电子打火机模具、砂轮打火机模具、防风打火机模具、灯机模具图片。
-- 注塑、插盘、焊接、面阀、充气、调火、压机板、检验、分色贴标等生产工艺流程。
-- 注塑机适配矩阵和打火机自动化生产设备参考。
+- Lighter component categories: electronic lighter parts, flint-wheel lighter parts, windproof lighter parts, flint-head lighter parts, lamp (kerosene) lighter parts.
+- Raw materials: component names, weights, minimum order quantities (MOQ), reference pricing, and notes.
+- Plastic injection molds: electronic / flint-wheel / windproof / lamp lighter mold images and specifications.
+- Injection-machine compatibility matrix and lighter automation production equipment references.
 
-关键词：打火机散件、打火机设备、打火机零部件、打火机模具、塑料模具、注塑机适配、打火机生产工艺、lighter parts、lighter machine、lighter mold。
+## Contact
 
-联系方式：15675907557
+- WhatsApp / WeChat: 15675907557
+- Email: 1163225096@qq.com
+- Location: China
+
+## Languages
+
+- This English file is the primary entry point for international / AI discovery.
+- 中文版 (Chinese version): https://q1163225096-arch.github.io/lighterparts/llms-zh.txt
