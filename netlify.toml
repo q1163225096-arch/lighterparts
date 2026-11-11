@@ -1,2 +1,11 @@
 [build]
   publish = "."
+
+# 主域名已统一为 GitHub Pages；若本 Netlify 站点仍连着此仓库，
+# 以下规则会把所有请求 301 重定向到 GitHub Pages，避免双站分裂/旧内容被收录。
+# 若该 Netlify 站点已不再使用，可直接停用或删除。
+[[redirects]]
+  from = "/*"
+  to = "https://q1163225096-arch.github.io/lighterparts/:splat"
+  status = 301
+  force = true
