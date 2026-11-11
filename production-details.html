@@ -416,14 +416,15 @@ const detailImages = [
   {file:'Feetoo-Product _页面_20.webp', youtube:'https://youtu.be/l4Mu3KcBZ2Y?si=CIonQE96Jq_1-1QF', w:1280, h:1629},
   {file:'Feetoo-Product _页面_21.webp', youtube:'https://youtu.be/nWJP7RoacCM?si=KBYJTADvAS_gYSxJ', w:1280, h:1484},
 /* __PROD_GALLERY_ITEMS_END__ */
-].map(item => ({
-  ...item,
-  src:`images/05-生产工艺/更多细节/${item.file}?v=${imageVersion}`,
-  small:`images/05-生产工艺/更多细节/${item.file.replace('.webp','@640.webp')}?v=${imageVersion}`
-}));
+].map(item => {
+  const base = `images/05-生产工艺/更多细节/${item.file}`;
+  const full = encodeURI(base) + `?v=${imageVersion}`;
+  const small = encodeURI(base.replace('.webp', '@640.webp')) + `?v=${imageVersion}`;
+  return { ...item, src: full, small, fullSrc: full };
+});
 
 document.getElementById('detailsList').innerHTML = detailImages.map((item, index) => {
-  const image = `<img src="${item.src}" srcset="${item.small} 640w, ${item.src} 1280w" sizes="(max-width:720px) 92vw, 1280px" width="${item.w}" height="${item.h}" alt="生产工艺细节 ${index + 1}" loading="${index === 0 ? 'eager' : 'lazy'}" fetchpriority="${index === 0 ? 'high' : 'low'}" decoding="async" onerror="this.closest('.detail-image').classList.add('image-missing')">`;
+  const image = `<img src="${item.src}" srcset="${item.small} 640w, ${item.src} 1280w" sizes="(max-width:720px) 92vw, 1280px" width="${item.w}" height="${item.h}" alt="生产工艺细节 ${index + 1}" loading="eager" fetchpriority="${index === 0 ? 'high' : 'low'}" decoding="async" data-fb="${item.fullSrc}" onerror="this.onerror=null;this.removeAttribute('srcset');this.removeAttribute('loading');this.src=this.dataset.fb;">`;
   const videoAction = `<span class="video-action-row"><span class="video-badge" data-i18n="view_video">查看视频</span></span>`;
   return `
     <figure class="detail-image${item.youtube ? ' is-linked' : ''}">
