@@ -396,6 +396,11 @@ body{
 <script src="page-i18n.js?v=detail-lang-sync"></script>
 <script>
 const imageVersion = '202606131140';
+// 手机端不给 1280w 候选：DPR3 手机需要约 1077 设备像素，若提供 1280w 浏览器必然选原图（约 1625KB）。
+// 只给 640w/960w，浏览器会选最接近的 960w（约 988KB），清晰度足够且不浪费流量。
+const isMobileViewport = typeof window.matchMedia === 'function'
+  ? window.matchMedia('(max-width:720px)').matches
+  : window.innerWidth <= 720;
 const detailImages = [
 /* __PROD_GALLERY_ITEMS__ */
   {file:'Feetoo-Product _页面_04.webp', youtube:'https://youtu.be/AIu0StJs0cE?si=PncDERQbnvdgbzvw', w:1280, h:1583},
@@ -420,11 +425,16 @@ const detailImages = [
   const base = `images/05-生产工艺/更多细节/${item.file}`;
   const full = encodeURI(base) + `?v=${imageVersion}`;
   const small = encodeURI(base.replace('.webp', '@640.webp')) + `?v=${imageVersion}`;
-  return { ...item, src: full, small, fullSrc: full };
+  const mid = encodeURI(base.replace('.webp', '@960.webp')) + `?v=${imageVersion}`;
+  return { ...item, src: full, small, mid, fullSrc: full };
 });
 
 document.getElementById('detailsList').innerHTML = detailImages.map((item, index) => {
-  const image = `<img src="${item.src}" srcset="${item.small} 640w, ${item.src} 1280w" sizes="(max-width:720px) 92vw, 1280px" width="${item.w}" height="${item.h}" alt="生产工艺细节 ${index + 1}" loading="eager" fetchpriority="${index === 0 ? 'high' : 'low'}" decoding="async" data-fb="${item.fullSrc}" onerror="this.onerror=null;this.removeAttribute('srcset');this.removeAttribute('loading');this.src=this.dataset.fb;">`;
+  const srcset = isMobileViewport
+    ? `${item.small} 640w, ${item.mid} 960w`
+    : `${item.small} 640w, ${item.mid} 960w, ${item.src} 1280w`;
+  const sizes = isMobileViewport ? '92vw' : '(max-width:720px) 92vw, 1280px';
+  const image = `<img src="${item.src}" srcset="${srcset}" sizes="${sizes}" width="${item.w}" height="${item.h}" alt="生产工艺细节 ${index + 1}" loading="eager" fetchpriority="${index === 0 ? 'high' : 'low'}" decoding="async" data-fb="${item.fullSrc}" onerror="this.onerror=null;this.removeAttribute('srcset');this.removeAttribute('loading');this.src=this.dataset.fb;">`;
   const videoAction = `<span class="video-action-row"><span class="video-badge" data-i18n="view_video">查看视频</span></span>`;
   return `
     <figure class="detail-image${item.youtube ? ' is-linked' : ''}">
